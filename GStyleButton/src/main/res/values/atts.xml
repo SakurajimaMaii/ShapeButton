@@ -12,6 +12,8 @@
             <!--任意圆角矩形按钮-->
             <enum name="any_corner_rect_shape" value="4"/>
         </attr>
+        <!--圆形按钮的半径-->
+        <attr name="circle_radius" format="dimension"/>
         <!--圆角矩形按钮的圆角半径-->
         <attr name="corner_radius" format="dimension"/>
         <!--任意圆角矩形按钮的四个圆角半径-->
@@ -22,6 +24,7 @@
         <!--是否填充-->
         <attr name="is_filling" format="boolean"/>
         <!--边框属性-->
+        <attr name="is_stroke" format="boolean"/>
         <attr name="stroke_width" format="dimension"/>
         <attr name="stroke_color" format="color"/>
         <!--填充色是否采用渐变以及渐变色-->

@@ -1,21 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:text="@string/solid_oval_button"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:button_shape="oval_shape"
+            app:background_color="#273c75"
+            app:circle_radius="60dp"/>
 
-    <com.gcode.gstylebutton.StyleButton
-        android:layout_width="wrap_content"
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text="@string/hollow_oval_button"
+            android:textColor="@color/black"
+            app:background_color="#273c75"
+            app:button_shape="oval_shape"
+            app:is_filling="false" />
+
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:text="@string/linear_gradient_oval_button"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:is_solid_color_gradient="true"
+            app:button_shape="oval_shape"
+            app:start_solid_color="#e84118"
+            app:center_solid_color="#c23616"
+            app:end_solid_color="#192a56"
+            app:gradient_type="linear_gradient"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="5dp"
+            android:text="@string/sweep_oval_button"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:is_solid_color_gradient="true"
+            app:button_shape="oval_shape"
+            app:start_solid_color="#e84118"
+            app:center_solid_color="#c23616"
+            app:end_solid_color="#273c75"
+            app:gradient_type="sweep_shape"/>
+
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text="@string/stroke_oval_button"
+            android:textColor="@color/white"
+            app:background_color="#273c75"
+            app:button_shape="oval_shape"
+            app:is_filling="true"
+            app:is_stroke="true"
+            app:stroke_width="5dp"
+            app:stroke_color="#4cd137"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:button_shape="corner_rect_shape"
-        app:corner_radius="10dp"
-        app:background_color="@color/purple_500"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/solid_corner_rect_shape_button"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:button_shape="corner_rect_shape"
+            app:background_color="#273c75"
+            app:corner_radius="10dp"/>
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/linear_gradient_corner_rect_shape_button"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:button_shape="corner_rect_shape"
+            app:corner_radius="10dp"
+            app:is_solid_color_gradient="true"
+            app:start_solid_color="#e84118"
+            app:center_solid_color="#c23616"
+            app:end_solid_color="#192a56"
+            app:gradient_type="linear_gradient"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/linear_gradient_stroke_corner_rect_shape_button"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:button_shape="corner_rect_shape"
+            app:corner_radius="10dp"
+            app:is_solid_color_gradient="true"
+            app:start_solid_color="#e84118"
+            app:center_solid_color="#c23616"
+            app:end_solid_color="#192a56"
+            app:gradient_type="linear_gradient"
+            app:is_stroke="true"
+            app:stroke_width="5dp"
+            app:stroke_color="#4cd137"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text="@string/stroke_rect_shape_button"
+            android:textColor="@color/white"
+            app:background_color="#273c75"
+            app:button_shape="rect_shape"
+            app:is_filling="true"
+            app:is_stroke="true"
+            app:stroke_width="5dp"
+            app:stroke_color="#e84118"/>
+        <com.gcode.gstylebutton.StyleButton
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text="@string/stroke_any_corner_rect_shape_button"
+            android:textColor="@color/white"
+            app:background_color="#273c75"
+            app:button_shape="any_corner_rect_shape"
+            app:is_filling="true"
+            app:is_stroke="true"
+            app:stroke_width="5dp"
+            app:stroke_color="#e84118"
+            app:left_top_corner_radius="20dp"
+            app:right_bottom_corner_radius="40sp"/>
+    </LinearLayout>
+</LinearLayout>

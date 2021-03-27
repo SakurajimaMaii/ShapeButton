@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">GStyleButtonSampleDemo</string>
+    <string name="solid_oval_button">实心圆形按钮</string>
+    <string name="hollow_oval_button">空心圆形按钮</string>
+    <string name="linear_gradient_oval_button">linear线性渐变</string>
+    <string name="sweep_oval_button">sweep线性渐变圆形按钮</string>
+    <string name="stroke_oval_button">带边框圆形按钮</string>
+    <string name="solid_corner_rect_shape_button">实心圆角按钮</string>
+    <string name="linear_gradient_corner_rect_shape_button">实心渐变圆角按钮</string>
+    <string name="stroke_rect_shape_button">带边框矩形按钮</string>
+    <string name="linear_gradient_stroke_corner_rect_shape_button">实心渐变带边框圆角按钮</string>
+    <string name="stroke_any_corner_rect_shape_button">带边框任意圆角矩形按钮</string>
 </resources>

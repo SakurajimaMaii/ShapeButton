@@ -4,7 +4,7 @@ package com.gcode.gstylebutton
  *作者:created by HP on 2021/3/9 12:03
  *邮箱:sakurajimamai2020@qq.com
  */
-object ButtonShapeType {
+object StyleButtonType {
 
     /**
      * 椭圆形状
