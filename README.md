@@ -1,4 +1,6 @@
 # ShapeButton介绍
+## 真机截图
+![Screenshot](https://github.com/SakurajimaMaii/GStyleButton/blob/master/img/Screenshot.png)
 ## 版本及语言
 ![targetSdkVersion](https://img.shields.io/badge/targetSdkVersion-30-%230984e3)  ![minSdkVersion](https://img.shields.io/badge/minSdkVersion-23-%23079992)  ![Programming language](https://img.shields.io/badge/Programming%20language-kotlin-%23eb3b5a)
 ## 添加引用
