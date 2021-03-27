@@ -1,6 +1,6 @@
 # ShapeButton介绍
 ## 版本及语言
-![targetSdkVersion](https://img.shields.io/badge/targetSdkVersion-30-%230984e3)![minSdkVersion](https://img.shields.io/badge/minSdkVersion-23-%23079992)![Programming language](https://img.shields.io/badge/Programming%20language-kotlin-%23eb3b5a)
+![targetSdkVersion](https://img.shields.io/badge/targetSdkVersion-30-%230984e3)  ![minSdkVersion](https://img.shields.io/badge/minSdkVersion-23-%23079992)  ![Programming language](https://img.shields.io/badge/Programming%20language-kotlin-%23eb3b5a)
 ## 添加引用
 
 1. 在项目根目录下的build.gradle添加
