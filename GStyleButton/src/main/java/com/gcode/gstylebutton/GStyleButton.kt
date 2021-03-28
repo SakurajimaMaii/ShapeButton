@@ -16,25 +16,25 @@ import androidx.core.content.ContextCompat
  *邮箱:sakurajimamai2020@qq.com
  */
 /**
- * GStyleButton 属性
- * @property buttonShape Int 按钮形状 只能通过styleButtonShapeType来设定
- * @property styleButtonShapeType GStyleButtonShapeType
- * @property ovalButtonRadius Float 圆形按钮半径设定
- * @property allCornerRadius Float
+ * GStyleButton属性
+ * @property buttonShape Int
+ * @property styleButtonShapeType GStyleButtonShapeType 按钮形状类型
+ * @property ovalRadius Float 圆形按钮半径
+ * @property roundedRectCornerRadius Float 圆角矩形圆角半径
  * @property leftTopCornerRadius Float
  * @property leftBottomCornerRadius Float
  * @property rightTopCornerRadius Float
  * @property rightBottomCornerRadius Float
- * @property isSolid Boolean
- * @property isStroke Boolean
- * @property strokeWidth Float
- * @property strokeColor Int
- * @property isSolidColorGradient Boolean
- * @property startSolidColor Int
- * @property centerSolidColor Int
- * @property endSolidColor Int
- * @property styleBackgroundColor Int
- * @property defaultGradientType Int
+ * @property isSolid Boolean 是否有填充
+ * @property isStroke Boolean 是否有边框
+ * @property strokeWidth Float 边框宽度
+ * @property strokeColor Int 边框颜色
+ * @property isSolidColorGradient Boolean 是否采用渐变填充色
+ * @property startSolidColor Int 渐变开始颜色
+ * @property centerSolidColor Int 渐变中间颜色
+ * @property endSolidColor Int 渐变结束颜色
+ * @property styleBackgroundColor Int button背景色
+ * @property styleGradientType Int 渐变类型
  * @property _mWidth Float
  * @property mWidth Float
  * @property _mHeight Float
@@ -44,16 +44,16 @@ class GStyleButton : AppCompatButton {
 
     private var buttonShape:Int = GStyleButtonShapeType.RECT_SHAPE.getTypeValue()
 
-    var shapeTypeG:GStyleButtonShapeType = GStyleButtonShapeType.RECT_SHAPE
+    var styleButtonShapeType:GStyleButtonShapeType = GStyleButtonShapeType.RECT_SHAPE
         set(value){
             field = value
             buttonShape = value.getTypeValue()
             create()
         }
 
-    fun setStyleButtonShapeType(shapeTypeG:GStyleButtonShapeType):GStyleButton{
-        this.shapeTypeG = shapeTypeG
-        buttonShape = shapeTypeG.getTypeValue()
+    fun setStyleButtonShapeType(styleButtonShapeType:GStyleButtonShapeType):GStyleButton{
+        this.styleButtonShapeType = styleButtonShapeType
+        buttonShape = styleButtonShapeType.getTypeValue()
         return this
     }
 
