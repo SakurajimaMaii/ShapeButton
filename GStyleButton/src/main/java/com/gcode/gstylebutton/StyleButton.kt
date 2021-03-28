@@ -2,6 +2,7 @@ package com.gcode.gstylebutton
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Canvas
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.util.AttributeSet
@@ -18,27 +19,68 @@ class StyleButton : AppCompatButton {
 
     //按钮形状
     var buttonShape = 0
+    fun setButtonShape(buttonShape:Int):StyleButton{
+        return this.apply {
+            this.buttonShape = buttonShape
+        }
+    }
     //圆形按钮半径
     var circleRadius:Float = 0f
     //圆角属性
     var allCornerRadius:Float = 0f
+    fun setAllCornerRadius(allCornerRadius:Float):StyleButton{
+        return this.apply {
+            this.allCornerRadius = allCornerRadius
+        }
+    }
     var leftTopCornerRadius:Float = 0f
     var leftBottomCornerRadius:Float = 0f
     var rightTopCornerRadius:Float = 0f
     var rightBottomCornerRadius:Float = 0f
     //是否填充 默认为true
     var isFilling:Boolean = true
+        set(value){
+            field = value
+            create()
+        }
     //边框属性
     var isStroke:Boolean = false
+        set(value){
+            field = value
+            create()
+        }
+    fun setIsStroke(isStroke:Boolean):StyleButton{
+        return this.apply {
+            this.isStroke = isStroke
+        }
+    }
+
     var strokeWidth:Float = 0f
+    fun setStrokeWidth(strokeWidth:Float):StyleButton{
+        return this.apply {
+            this.strokeWidth = strokeWidth
+        }
+    }
+
     var strokeColor:Int = 0
+    fun setStrokeColor(strokeColor:Int):StyleButton{
+        return this.apply {
+            this.strokeColor = strokeColor
+        }
+    }
+
     //边框是否采用渐变 默认为false
     var isSolidColorGradient:Boolean = false
     var startSolidColor:Int = 0
     var centerSolidColor:Int = 0
     var endSolidColor:Int = 0
     //默认背景色
-    var defaultBackgroundColor:Int = 0
+    var styleBackgroundColor:Int = 0
+    fun setStyleBackgroundColor(styleBackgroundColor:Int):StyleButton{
+        return this.apply {
+            this.styleBackgroundColor = styleBackgroundColor
+        }
+    }
     //渐变类型
     var defaultGradientType:Int = 0
 
@@ -51,6 +93,12 @@ class StyleButton : AppCompatButton {
 
     val mHeight:Float
         get() = _mHeight
+
+    fun setText(text:String):StyleButton{
+        return this.apply {
+            this.text = text
+        }
+    }
 
     /**
      * @param context
@@ -87,13 +135,13 @@ class StyleButton : AppCompatButton {
         centerSolidColor = ta.getColor(R.styleable.StyleButton_center_solid_color, ContextCompat.getColor(context, R.color.white))
         endSolidColor = ta.getColor(R.styleable.StyleButton_end_solid_color, ContextCompat.getColor(context, R.color.white))
 
-        defaultBackgroundColor = ta.getColor(R.styleable.StyleButton_background_color, ContextCompat.getColor(context, R.color.default_color))
+        styleBackgroundColor = ta.getColor(R.styleable.StyleButton_background_color, ContextCompat.getColor(context, R.color.default_color))
 
         defaultGradientType = ta.getInteger(R.styleable.StyleButton_gradient_type, GradientDrawable.LINEAR_GRADIENT)
 
-        ta.recycle() //回收TypedArray
+        create()
 
-        init(context)
+        ta.recycle() //回收TypedArray
     }
 
     /**
@@ -117,8 +165,7 @@ class StyleButton : AppCompatButton {
     /**
      * 初始化Button
      */
-    @RequiresApi(Build.VERSION_CODES.R)
-    private fun init(context: Context){
+    fun create(){
 
         val drawable: GradientDrawable = GradientDrawable()
         drawable.apply {
@@ -131,7 +178,7 @@ class StyleButton : AppCompatButton {
                             startSolidColor, centerSolidColor, endSolidColor
                     )
                 }else{
-                    setColor(defaultBackgroundColor)
+                    setColor(styleBackgroundColor)
                 }
             }else{
                 setStroke(5, ContextCompat.getColor(context, R.color.default_color))
@@ -167,4 +214,6 @@ class StyleButton : AppCompatButton {
         }
         background = drawable
     }
+
+
 }
