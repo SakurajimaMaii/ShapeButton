@@ -27,6 +27,28 @@
 - **矩形按钮**
 - **圆角矩形按钮**
 - **任意圆角矩形按钮**
+## 属性设置
+### 直接设定
+你可以直接设定其中的属性,例如
+```kt
+styleButton.styleButtonShapeType = GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE
+```
+你也可以使用链式方式进行设定,但注意,链式设定最后一定要调用**create()** 方法,否则无法生效.例如:
+```kt
+styleButton.setStyleButtonShapeType(GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE)
+            .setAnyRoundedRectCornerRadius(10f,0f,0f,10f)
+            .setIsSolidColorGradient(true)
+            .setSolidColorGradient(
+                ContextCompat.getColor(this, R.color.design_default_color_primary),
+                ContextCompat.getColor(this, R.color.design_default_color_primary_dark),
+                ContextCompat.getColor(this, R.color.design_default_color_primary_variant)
+            )
+            .setIsStroke(true)
+            .setStrokeColor(ContextCompat.getColor(this,R.color.teal_200))
+            .setStrokeWidth(10f)
+            .setText(resources.getString(R.string.app_name))
+            .create()
+```
 ## 相关属性说明
 ```xml
 <declare-styleable name="StyleButton">
