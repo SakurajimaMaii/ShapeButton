@@ -13,16 +13,16 @@
             <enum name="any_corner_rect_shape" value="4"/>
         </attr>
         <!--圆形按钮的半径-->
-        <attr name="circle_radius" format="dimension"/>
+        <attr name="oval_radius" format="dimension"/>
         <!--圆角矩形按钮的圆角半径-->
-        <attr name="corner_radius" format="dimension"/>
+        <attr name="rounded_rect_corner_radius" format="dimension"/>
         <!--任意圆角矩形按钮的四个圆角半径-->
         <attr name="left_top_corner_radius" format="dimension"/>
         <attr name="left_bottom_corner_radius" format="dimension"/>
         <attr name="right_top_corner_radius" format="dimension"/>
         <attr name="right_bottom_corner_radius" format="dimension"/>
         <!--是否填充-->
-        <attr name="is_filling" format="boolean"/>
+        <attr name="is_solid" format="boolean"/>
         <!--边框属性-->
         <attr name="is_stroke" format="boolean"/>
         <attr name="stroke_width" format="dimension"/>
@@ -39,6 +39,6 @@
             <enum name="sweep_shape" value="2"/>
         </attr>
         <!--默认背景色-->
-        <attr name="background_color" format="color"/>
+        <attr name="style_background_color" format="color"/>
     </declare-styleable>
 </resources>

@@ -6,14 +6,4 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".TestActivity">
-    <com.gcode.gstylebutton.StyleButton
-        android:id="@+id/styleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"/>
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="change"/>
 </LinearLayout>
