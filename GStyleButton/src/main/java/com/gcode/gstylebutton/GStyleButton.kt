@@ -1,6 +1,7 @@
 package com.gcode.gstylebutton
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
@@ -224,8 +225,20 @@ class GStyleButton : AppCompatButton {
     val mHeight:Float
         get() = _mHeight
 
-    fun setText(text:String):GStyleButton{
+    //以下set方法用于设定AppCompatButton已有属性值,方便链式使用
+
+    fun GStyle_SetText(text:String):GStyleButton{
         this.text = text
+        return this
+    }
+
+    fun GStyle_setTextColor(colorId:Int):GStyleButton {
+        this.setTextColor(colorId)
+        return this
+    }
+
+    fun GStyle_setTextColor(color:ColorStateList):GStyleButton{
+        this.setTextColor(color)
         return this
     }
 
@@ -293,6 +306,7 @@ class GStyleButton : AppCompatButton {
 
     /**
      * 初始化Button
+     * 在使用链式方法创建时,该方法必须在最后被调用
      */
     fun create(){
 
@@ -307,8 +321,6 @@ class GStyleButton : AppCompatButton {
                 }else{
                     setColor(styleBackgroundColor)
                 }
-            }else{
-                setStroke(5, ContextCompat.getColor(context, R.color.default_color))
             }
 
             if(isStroke){
