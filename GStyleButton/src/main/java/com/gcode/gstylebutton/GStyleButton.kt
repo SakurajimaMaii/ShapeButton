@@ -254,32 +254,32 @@ class GStyleButton : AppCompatButton {
     @RequiresApi(Build.VERSION_CODES.R)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs){
 
-        val ta:TypedArray = context.obtainStyledAttributes(attrs, R.styleable.StyleButton)
+        val ta:TypedArray = context.obtainStyledAttributes(attrs, R.styleable.GStyleButton)
 
-        buttonShape = ta.getInteger(R.styleable.StyleButton_button_shape, GStyleButtonShapeType.RECT_SHAPE.getTypeValue())
+        buttonShape = ta.getInteger(R.styleable.GStyleButton_button_shape, GStyleButtonShapeType.RECT_SHAPE.getTypeValue())
 
-        ovalRadius = ta.getDimension(R.styleable.StyleButton_oval_radius, 0f)
+        ovalRadius = ta.getDimension(R.styleable.GStyleButton_oval_radius, 0f)
 
-        roundedRectCornerRadius = ta.getDimension(R.styleable.StyleButton_rounded_rect_corner_radius, 0f)
-        leftTopCornerRadius = ta.getDimension(R.styleable.StyleButton_left_top_corner_radius, 0f)
-        leftBottomCornerRadius = ta.getDimension(R.styleable.StyleButton_left_bottom_corner_radius, 0f)
-        rightTopCornerRadius = ta.getDimension(R.styleable.StyleButton_right_top_corner_radius, 0f)
-        rightBottomCornerRadius = ta.getDimension(R.styleable.StyleButton_right_bottom_corner_radius, 0f)
+        roundedRectCornerRadius = ta.getDimension(R.styleable.GStyleButton_rounded_rect_corner_radius, 0f)
+        leftTopCornerRadius = ta.getDimension(R.styleable.GStyleButton_left_top_corner_radius, 0f)
+        leftBottomCornerRadius = ta.getDimension(R.styleable.GStyleButton_left_bottom_corner_radius, 0f)
+        rightTopCornerRadius = ta.getDimension(R.styleable.GStyleButton_right_top_corner_radius, 0f)
+        rightBottomCornerRadius = ta.getDimension(R.styleable.GStyleButton_right_bottom_corner_radius, 0f)
 
-        isSolid = ta.getBoolean(R.styleable.StyleButton_is_solid, true)
+        isSolid = ta.getBoolean(R.styleable.GStyleButton_is_solid, true)
 
-        isStroke = ta.getBoolean(R.styleable.StyleButton_is_stroke, false)
-        strokeWidth = ta.getDimension(R.styleable.StyleButton_stroke_width, 0f)
-        strokeColor = ta.getColor(R.styleable.StyleButton_stroke_color, ContextCompat.getColor(context, R.color.white))
+        isStroke = ta.getBoolean(R.styleable.GStyleButton_is_stroke, false)
+        strokeWidth = ta.getDimension(R.styleable.GStyleButton_stroke_width, 0f)
+        strokeColor = ta.getColor(R.styleable.GStyleButton_stroke_color, ContextCompat.getColor(context, R.color.white))
 
-        isSolidColorGradient = ta.getBoolean(R.styleable.StyleButton_is_solid_color_gradient, false)
-        startSolidColor = ta.getColor(R.styleable.StyleButton_start_solid_color, ContextCompat.getColor(context, R.color.white))
-        centerSolidColor = ta.getColor(R.styleable.StyleButton_center_solid_color, ContextCompat.getColor(context, R.color.white))
-        endSolidColor = ta.getColor(R.styleable.StyleButton_end_solid_color, ContextCompat.getColor(context, R.color.white))
+        isSolidColorGradient = ta.getBoolean(R.styleable.GStyleButton_is_solid_color_gradient, false)
+        startSolidColor = ta.getColor(R.styleable.GStyleButton_start_solid_color, ContextCompat.getColor(context, R.color.white))
+        centerSolidColor = ta.getColor(R.styleable.GStyleButton_center_solid_color, ContextCompat.getColor(context, R.color.white))
+        endSolidColor = ta.getColor(R.styleable.GStyleButton_end_solid_color, ContextCompat.getColor(context, R.color.white))
 
-        styleBackgroundColor = ta.getColor(R.styleable.StyleButton_style_background_color, ContextCompat.getColor(context, R.color.default_color))
+        styleBackgroundColor = ta.getColor(R.styleable.GStyleButton_style_background_color, ContextCompat.getColor(context, R.color.default_color))
 
-        styleGradientType = ta.getInteger(R.styleable.StyleButton_gradient_type, GradientDrawable.LINEAR_GRADIENT)
+        styleGradientType = ta.getInteger(R.styleable.GStyleButton_gradient_type, GradientDrawable.LINEAR_GRADIENT)
 
         create()
 
