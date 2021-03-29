@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="StyleButton">
+    <declare-styleable name="GStyleButton">
         <!--按钮的基本形状-->
         <attr name="button_shape" format="dimension">
             <!--椭圆按钮-->
