@@ -17,12 +17,11 @@
 	```
 	
 2. 添加依赖
-
-   ```gradle
+```gradle
    dependencies {
-   	implementation 'com.github.SakurajimaMaii:GStyleButton:beta-1.1.0'
+   	implementation 'com.github.SakurajimaMaii:GStyleButton:beta-1.1.1'
    }
-	```
+```
 ## 目前支持的按钮类型
 - **圆形/椭圆形按钮** 
 - **矩形按钮**
@@ -31,11 +30,11 @@
 ## 属性设置
 ### 直接设定
 你可以直接设定其中的属性,例如
-```kt
+```kotlin
 styleButton.styleButtonShapeType = GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE
 ```
 你也可以使用链式方式进行设定,但注意,链式设定最后一定要调用**create()** 方法,否则无法生效.例如:
-```kt
+```kotlin
 styleButton.setStyleButtonShapeType(GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE)
             .setAnyRoundedRectCornerRadius(10f,0f,0f,10f)
             .setIsSolidColorGradient(true)
