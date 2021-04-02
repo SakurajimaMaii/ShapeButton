@@ -17,11 +17,11 @@
 	```
 	
 2. 添加依赖
-```gradle
-   dependencies {
-   	implementation 'com.github.SakurajimaMaii:GStyleButton:beta-1.1.1'
-   }
-```
+	```gradle
+   	dependencies {
+   		implementation 'com.github.SakurajimaMaii:GStyleButton:beta-1.1.1'
+   	}
+	```
 ## 目前支持的按钮类型
 - **圆形/椭圆形按钮** 
 - **矩形按钮**
