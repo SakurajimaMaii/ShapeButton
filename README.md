@@ -35,28 +35,10 @@
 ## 属性设置
 ### 直接设定
 你可以直接设定其中的属性,例如
-<<<<<<< HEAD
 ```kt
 button.setButtonShapeType(GStyleButtonShapeType.ROUNDED_RECT_SHAPE).create()
 ```
 你也可以使用链式方式进行设定,例如
-```kt
-button.setButtonShapeType(GStyleButtonShapeType.OVAL_SHAPE)
-                .setRoundedRectCornerRadius(40f)
-                .setIsSolid(true)
-                .setIsSolidColorGradient(true)
-                .setGradientDirectionType(GStyleButtonGradientType.RADIAL_GRADIENT)
-                .setSolidColorGradient(
-                        ContextCompat.getColor(this, R.color.palevioletred),
-                        ContextCompat.getColor(this, R.color.orchid),
-                        ContextCompat.getColor(this, R.color.mediumvioletred)
-                )
-                .create()
-=======
-```kotlin
-styleButton.styleButtonShapeType = GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE
-```
-你也可以使用链式方式进行设定,但注意,链式设定最后一定要调用**create()** 方法,否则无法生效.例如:
 ```kotlin
 styleButton.setStyleButtonShapeType(GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE)
             .setAnyRoundedRectCornerRadius(10f,0f,0f,10f)
@@ -71,7 +53,6 @@ styleButton.setStyleButtonShapeType(GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE
             .setStrokeWidth(10f)
             .setText(resources.getString(R.string.app_name))
             .create()
->>>>>>> 9d097c6bc13af8cb115852c161521c0cb7fa63c7
 ```
 **但注意,无论哪种方法最后一定要调用create()方法,否则无法生效.**
 
