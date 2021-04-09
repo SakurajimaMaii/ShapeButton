@@ -28,33 +28,38 @@
 - **矩形按钮**
 - **圆角矩形按钮**
 - **任意圆角矩形按钮**
+## 目前支持的四种点击状态
+- **默认(normal)** 
+- **点击或者触摸(pressed)**
+- **获取焦点(focused)**
+- **不可用(unable)**
 ## 属性设置
 ### 直接设定
 你可以直接设定其中的属性,例如
 ```kt
-styleButton.styleButtonShapeType = GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE
+button.setButtonShapeType(GStyleButtonShapeType.ROUNDED_RECT_SHAPE).create()
 ```
-你也可以使用链式方式进行设定,但注意,链式设定最后一定要调用**create()** 方法,否则无法生效.例如:
+你也可以使用链式方式进行设定,例如
 ```kt
-styleButton.setStyleButtonShapeType(GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE)
-            .setAnyRoundedRectCornerRadius(10f,0f,0f,10f)
-            .setIsSolidColorGradient(true)
-            .setSolidColorGradient(
-                ContextCompat.getColor(this, R.color.design_default_color_primary),
-                ContextCompat.getColor(this, R.color.design_default_color_primary_dark),
-                ContextCompat.getColor(this, R.color.design_default_color_primary_variant)
-            )
-            .setIsStroke(true)
-            .setStrokeColor(ContextCompat.getColor(this,R.color.teal_200))
-            .setStrokeWidth(10f)
-            .setText(resources.getString(R.string.app_name))
-            .create()
+button.setButtonShapeType(GStyleButtonShapeType.OVAL_SHAPE)
+                .setRoundedRectCornerRadius(40f)
+                .setIsSolid(true)
+                .setIsSolidColorGradient(true)
+                .setGradientDirectionType(GStyleButtonGradientType.RADIAL_GRADIENT)
+                .setSolidColorGradient(
+                        ContextCompat.getColor(this, R.color.palevioletred),
+                        ContextCompat.getColor(this, R.color.orchid),
+                        ContextCompat.getColor(this, R.color.mediumvioletred)
+                )
+                .create()
 ```
+**但注意,无论哪种方法最后一定要调用create()方法,否则无法生效.**
+
 ## 相关属性说明
 
 |           属性名           | 属性类型  |            属性说明            |                            属性值                            |
 | :------------------------: | :-------: | :----------------------------: | :----------------------------------------------------------: |
-|        button_shape        | dimension |           按钮的形状           | oval_shape<br>rect_shape<br>corner_rect_shape<br>any_corner_rect_shape |
+|        button_shape        | dimension |           按钮的形状           | oval_shape<br>rect_shape<br>rounded_rect_shape<br>any_rounded_rect_shape |
 |        oval_radius         | dimension |         圆形按钮的半径         |                                                              |
 | rounded_rect_corner_radius | dimension |       矩形按钮的圆角半径       |                                                              |
 |   left_top_corner_radius   | dimension | 任意圆角矩形按钮的四个圆角半径 |                                                              |
@@ -67,7 +72,13 @@ styleButton.setStyleButtonShapeType(GStyleButtonShapeType.ANY_ROUNDED_RECT_SHAPE
 |   center_solid_color   | color | 渐变中间色 |  |
 |   end_solid_color   | color | 渐变结束色 |  |
 |   gradient_type   | dimension | 渐变方向 | linear_gradient<br>radial_gradient<br>sweep_shape |
-|   is_stroke   | boolean | 按钮是否有边框 | true<br>false |
-|   stroke_width   | dimension | 按钮边框宽度 | |
-|   stroke_color   | color | 按钮边框颜色 | |
-|   style_background_color   | color | 默认背景色 | |
+|   stroke_width   | dimension |            按钮边框宽度            |  |
+|   normal_bg_color   | color | 默认状态背景色 | |
+|      pressed_bg_color      |   color   | 指当用户点击或者触摸该控件的背景色 |                                                              |
+|      focused_bg_color      |   color   |    指当前控件获得焦点时的背景色    | |
+|      unable_bg_color       |   color   |    指当前窗口获得焦点时的背景色    | |
+|    normal_stroke_color     |   color   |           默认状态边框色           | |
+|    pressed_stroke_color    |   color   | 指当用户点击或者触摸该控件的边框色 | |
+|    focused_stroke_color    |   color   |    指当前控件获得焦点时的边框色    | |
+|    unable_stroke_color     |   color   |    指当前窗口获得焦点时的边框色    | |
+

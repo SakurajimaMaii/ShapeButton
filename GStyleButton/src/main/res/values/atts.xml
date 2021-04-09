@@ -8,9 +8,9 @@
             <!--矩形按钮-->
             <enum name="rect_shape" value="2"/>
             <!--圆角矩形按钮-->
-            <enum name="corner_rect_shape" value="3"/>
+            <enum name="rounded_rect_shape" value="3"/>
             <!--任意圆角矩形按钮-->
-            <enum name="any_corner_rect_shape" value="4"/>
+            <enum name="any_rounded_rect_shape" value="4"/>
         </attr>
         <!--圆形按钮的半径-->
         <attr name="oval_radius" format="dimension"/>
@@ -24,9 +24,7 @@
         <!--是否填充-->
         <attr name="is_solid" format="boolean"/>
         <!--边框属性-->
-        <attr name="is_stroke" format="boolean"/>
         <attr name="stroke_width" format="dimension"/>
-        <attr name="stroke_color" format="color"/>
         <!--填充色是否采用渐变以及渐变色-->
         <attr name="is_solid_color_gradient" format="boolean"/>
         <attr name="start_solid_color" format="color"/>
@@ -38,7 +36,15 @@
             <enum name="radial_gradient" value="1"/>
             <enum name="sweep_shape" value="2"/>
         </attr>
-        <!--默认背景色-->
-        <attr name="style_background_color" format="color"/>
+        <!--各种状态点击背景色-->
+        <attr name="normal_bg_color" format="color"/>
+        <attr name="pressed_bg_color" format="color"/>
+        <attr name="focused_bg_color" format="color"/>
+        <attr name="unable_bg_color" format="color"/>
+        <!--各种状态点击边框色-->
+        <attr name="normal_stroke_color" format="color"/>
+        <attr name="pressed_stroke_color" format="color"/>
+        <attr name="focused_stroke_color" format="color"/>
+        <attr name="unable_stroke_color" format="color"/>
     </declare-styleable>
 </resources>
