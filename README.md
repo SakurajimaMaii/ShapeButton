@@ -3,25 +3,25 @@
 ![Screenshot](https://img-blog.csdnimg.cn/20210329123251630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5OTcxNg==,size_16,color_FFFFFF,t_70)
 ![Screenshot_2](https://img-blog.csdnimg.cn/20210329124016305.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5OTcxNg==,size_16,color_FFFFFF,t_70)
 ## 版本及语言
-![targetSdkVersion](https://img.shields.io/badge/targetSdkVersion-30-%230984e3)  ![minSdkVersion](https://img.shields.io/badge/minSdkVersion-23-%23079992)  ![Programming language](https://img.shields.io/badge/Programming%20language-kotlin-%23eb3b5a)
+![targetSdkVersion](https://img.shields.io/badge/targetSdkVersion-30-%230984e3)  ![minSdkVersion](https://img.shields.io/badge/minSdkVersion-23-%23079992)  ![Programming language](https://img.shields.io/badge/Programming%20language-kotlin-%23eb3b5a)  ![currentVersion](https://jitpack.io/v/SakurajimaMaii/ShapeButton.svg)
 ## 添加引用
 
 1. 在项目根目录下的build.gradle添加
-	```gradle
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+```groovy
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
-	```
+}
+```
 	
 2. 添加依赖
-	```gradle
-   	dependencies {
-   		implementation 'com.github.SakurajimaMaii:GStyleButton:beta-1.2.0'
-   	}
-	```
+```groovy
+dependencies {
+	implementation 'com.github.SakurajimaMaii:ShapeButton:beta-2.0.0'
+}
+```
 ## 目前支持的按钮类型
 - **圆形/椭圆形按钮** 
 - **矩形按钮**
