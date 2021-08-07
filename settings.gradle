@@ -1,0 +1,3 @@
+include ':ShapeButton'
+include ':app'
+rootProject.name = "ShapeButtonSampleDemo"
