@@ -18,11 +18,10 @@ class TestActivity : AppCompatActivity() {
         val button3 = findViewById<ShapeButton>(R.id.button3)
         val button4 = findViewById<ShapeButton>(R.id.button4)
 
-        //button3.isEnabled = false
-        button3.apply {
+        button4.isEnabled = false
+        button4.apply {
             setButtonShapeType(ShapeButtonShapeType.ANY_ROUNDED_RECT_SHAPE)
             setAnyRoundedRectCornerRadius(10f,0f,20f,0f)
-            setOvalButtonRadius(100f)
             setIsSolid(true)
             setIsSolidColorGradient(true)
             setGradientDirectionType(ShapeButtonGradientType.LINEAR_GRADIENT)
@@ -48,7 +47,7 @@ class TestActivity : AppCompatActivity() {
             )
             create()
         }
-        Log.d("MyTest","${button3.isFocused}")
+        Log.d("MyTest","${button3.getButtonShapeType()} ${button3.buttonHeight}")
 
     }
 }

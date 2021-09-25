@@ -12,17 +12,17 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:button_shape="oval_shape"
+        app:button_shape="rect_shape"
         app:button_oval_radius="200dp"
-        app:button_is_solid="true" />
+        app:button_is_solid="true"
+        app:button_rect_width="100dp"
+        app:button_rect_height="200dp"/>
 
     <com.gcode.widget.ShapeButton
         android:id="@+id/button4"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:button_shape="oval_shape"
-        app:button_oval_radius="100dp"/>
+        android:layout_height="wrap_content" />
 
 <!--    <com.gcode.gstylebutton.GStyleButton-->
 <!--        android:id="@+id/button2"-->

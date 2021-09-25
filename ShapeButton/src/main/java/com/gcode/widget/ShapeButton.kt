@@ -55,7 +55,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     //按钮的种类
-    private var buttonShape: Int = ShapeButtonShapeType.OVAL_SHAPE.typeValue
+    private var buttonShape: Int = ShapeButtonShapeType.RECT_SHAPE.typeValue
 
     //按钮颜色渐变种类
     private var gradientDirection: Int = ShapeButtonGradientType.LINEAR_GRADIENT.typeValue
