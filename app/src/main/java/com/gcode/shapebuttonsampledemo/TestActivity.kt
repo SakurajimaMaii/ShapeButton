@@ -1,12 +1,13 @@
-package com.gcode.gstylebuttonsampledemo
+package com.gcode.shapebuttonsampledemo
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.gcode.widget.ShapeButton
-import com.gcode.widget.ShapeButtonGradientType
-import com.gcode.widget.ShapeButtonShapeType
+import com.gcode.gstylebuttonsampledemo.R
+import com.gcode.shapebutton.ShapeButton
+import com.gcode.shapebutton.ShapeButtonGradientType
+import com.gcode.shapebutton.ShapeButtonShapeType
 
 class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class TestActivity : AppCompatActivity() {
             setAnyRoundedRectCornerRadius(10f,0f,20f,0f)
             setIsSolid(true)
             setIsSolidColorGradient(true)
-            setGradientDirectionType(ShapeButtonGradientType.LINEAR_GRADIENT)
+            setGradientOrientationType(ShapeButtonGradientType.LINEAR_GRADIENT)
             setSolidColorGradient(
                 ContextCompat.getColor(context, R.color.red),
                 ContextCompat.getColor(context, R.color.design_default_color_primary_dark),

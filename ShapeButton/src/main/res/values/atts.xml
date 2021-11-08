@@ -1,51 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ShapeButton">
-        <!--按钮的基本形状-->
+        <!--Button shape-->
         <attr name="button_shape" format="dimension">
-            <!--椭圆按钮-->
+            <!--Oval Button-->
             <enum name="oval_shape" value="1"/>
-            <!--矩形按钮-->
+            <!--Rectangle Button-->
             <enum name="rect_shape" value="2"/>
-            <!--圆角矩形按钮-->
+            <!--Rounded Rectangle Button-->
             <enum name="rounded_rect_shape" value="3"/>
-            <!--任意圆角矩形按钮-->
+            <!--Any rounded rectangle button-->
             <enum name="any_rounded_rect_shape" value="4"/>
         </attr>
-        <!--矩形按钮的宽度-->
+        <!--Rectangular button width-->
         <attr name="button_rect_width" format="dimension"/>
-        <!--矩形按钮的高度-->
+        <!--Rectangular button height-->
         <attr name="button_rect_height" format="dimension"/>
-        <!--圆形按钮的半径-->
+        <!--Oval button radius-->
         <attr name="button_oval_radius" format="dimension"/>
-        <!--圆角矩形按钮的圆角半径-->
+        <!--Rounded radius of rounded rectangular buttons-->
         <attr name="button_rounded_rect_corner_radius" format="dimension"/>
-        <!--任意圆角矩形按钮的四个圆角半径-->
+        <!--Any rounded radius of any rounded rectangular button -->
         <attr name="button_left_top_corner_radius" format="dimension"/>
         <attr name="button_left_bottom_corner_radius" format="dimension"/>
         <attr name="button_right_top_corner_radius" format="dimension"/>
         <attr name="button_right_bottom_corner_radius" format="dimension"/>
-        <!--是否填充-->
+        <!--true is button solid,false or not-->
         <attr name="button_is_solid" format="boolean"/>
-        <!--边框属性-->
         <attr name="button_stroke_width" format="dimension"/>
-        <!--填充色是否采用渐变以及渐变色-->
+        <!--true is solid color gradient,false or not-->
         <attr name="button_is_solid_color_gradient" format="boolean"/>
         <attr name="button_start_solid_color" format="color"/>
         <attr name="button_center_solid_color" format="color"/>
         <attr name="button_end_solid_color" format="color"/>
-        <!--渐变方向-->
+        <!--Gradient orientation-->
         <attr name="button_gradient_type" format="dimension">
             <enum name="linear_gradient" value="0"/>
             <enum name="radial_gradient" value="1"/>
             <enum name="sweep_shape" value="2"/>
         </attr>
-        <!--各种状态点击背景色-->
+        <!--The background color in different states-->
         <attr name="button_normal_bg_color" format="color"/>
         <attr name="button_pressed_bg_color" format="color"/>
         <attr name="button_focused_bg_color" format="color"/>
         <attr name="button_unable_bg_color" format="color"/>
-        <!--各种状态点击边框色-->
+        <!--The stroke color in different states-->
         <attr name="button_normal_stroke_color" format="color"/>
         <attr name="button_pressed_stroke_color" format="color"/>
         <attr name="button_focused_stroke_color" format="color"/>

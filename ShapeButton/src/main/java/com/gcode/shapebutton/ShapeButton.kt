@@ -1,4 +1,4 @@
-package com.gcode.widget
+package com.gcode.shapebutton
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -9,15 +9,16 @@ import androidx.annotation.ColorInt
 import androidx.annotation.FloatRange
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import com.gcode.widget.R
 
 /**
  *作者:created by HP on 2021/3/7 23:34
  *邮箱:sakurajimamai2020@qq.com
  */
 /**
- * ShapeButton属性
+ * ShapeButton
  * @property buttonShape Int
- * @property gradientDirection Int
+ * @property gradientOrientation Int
  * @property rectButtonWidth Float
  * @property rectButtonHeight Float
  * @property ovalButtonRadius Float
@@ -54,73 +55,97 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         const val viewTag = "ShapeButton"
     }
 
-    //按钮的种类
+    /**
+     * Button shape
+     * [ShapeButtonShapeType.OVAL_SHAPE]
+     * [ShapeButtonShapeType.RECT_SHAPE]
+     * [ShapeButtonShapeType.ROUNDED_RECT_SHAPE]
+     * [ShapeButtonShapeType.ANY_ROUNDED_RECT_SHAPE]
+     */
     private var buttonShape: Int = ShapeButtonShapeType.RECT_SHAPE.typeValue
 
-    //按钮颜色渐变种类
-    private var gradientDirection: Int = ShapeButtonGradientType.LINEAR_GRADIENT.typeValue
+    /**
+     * Button solid color gradient orientation.
+     */
+    private var gradientOrientation: Int = ShapeButtonGradientType.LINEAR_GRADIENT.typeValue
 
     /**
-     * 矩形类按钮的长宽,设定方法参考
-     * @see ShapeButton.setRectButtonWidth
-     * @see ShapeButton.setRectButtonHeight
-     * 该值不能在外部获取,如需获取请参考以下变量 [buttonWidth] [buttonHeight]
+     * Rect button size,if you want to set
+     * the value,please check
+     * [ShapeButton.setRectButtonWidth]<br/>
+     * [ShapeButton.setRectButtonHeight]
+     *
+     * The value cannot be got externally,
+     * please refer to [buttonWidth]<br/>
+     * [buttonHeight] if you need to get it.
      */
     private var rectButtonWidth:Float = 0f
     private var rectButtonHeight:Float = 0f
 
     /**
-     * 圆形按钮的半径长度,设定方法参考
-     * @see ShapeButton.setOvalButtonRadius
-     * 该值不能在外部获取,如需获取请参考以下变量 [buttonWidth] [buttonHeight]
+     * Oval button radius.if you want to set
+     * the value,please check
+     * [ShapeButton.setOvalButtonRadius]
+     *
+     * The value cannot be got externally,
+     * please refer to [buttonWidth]<br/>
+     * [buttonHeight] if you need to get it.
      */
     private var ovalButtonRadius: Float = 0f
 
-    //按钮的宽度 用于外部调用
+    /**
+     * Button width(in pixels).
+     */
     val buttonWidth:Float
         get() = (if(buttonShape == ShapeButtonShapeType.OVAL_SHAPE.typeValue){ 2*ovalButtonRadius }else{rectButtonWidth})/density
 
-    //按钮的高度 用于外部调用
+    /**
+     * Button height(in pixels).
+     */
     val buttonHeight:Float
         get() = (if(buttonShape == ShapeButtonShapeType.OVAL_SHAPE.typeValue){ 2*ovalButtonRadius }else{rectButtonHeight})/density
 
     /**
-     * 圆角按钮的圆角半径,设定方法
-     * @see ShapeButton.setRoundedRectCornerRadius
-     * 获取方法
-     * @see ShapeButton.getRoundedRectCornerRadius
+     * Rounded rect corner radius.
+     * @see setRoundedRectCornerRadius
+     * @see getRoundedRectCornerRadius
      */
     private var roundedRectCornerRadius: Float = 0f
 
     /**
-     * 任意圆角按钮的四个圆角半径,设定方法
-     * @see ShapeButton.setAnyRoundedRectCornerRadius
-     * 获取方法例如
-     * @see ShapeButton.getLeftTopCornerRadius
-     * 单独设定圆角半径参考下列方法等
-     * @see ShapeButton.setLeftTopCornerRadius
+     * Corner radius for any rounded corner rect.
+     * @see setAnyRoundedRectCornerRadius
+     * @see getLeftTopCornerRadius
+     * @see setLeftTopCornerRadius
      */
     private var leftTopCornerRadius: Float = 0f
     private var leftBottomCornerRadius: Float = 0f
     private var rightTopCornerRadius: Float = 0f
     private var rightBottomCornerRadius: Float = 0f
 
-    //按钮是否填充
+    /**
+     * `true` if the button is solid,`false` otherwise.
+     * @see setIsSolid
+     */
     var isSolid: Boolean = false
         private set
 
-    //按钮的边框宽度
+    /**
+     * Stroke width
+     */
     private var strokeWidth: Float = 0f
 
-    //是否采用渐变填充色
+    /**
+     * `true` if the solid color is gradient,`false` otherwise.
+     */
     var isSolidColorGradient: Boolean = false
         private set
 
     /**
-     * 渐变填充色
-     * 注意:这些颜色均为0xAARRGGBB形式的单一颜色值。
-     * 设定方法参考
-     * @see ShapeButton.setSolidColorGradient
+     * Gradient color(in 0xAARRGGBB).
+
+     * If you want to set the value,please check
+     * [setSolidColorGradient]
      */
     var startSolidColor: Int = 0
         private set
@@ -130,12 +155,12 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         private set
 
     /**
-     * 按钮不同状态背景色
-     * 注意:这些颜色均为0xAARRGGBB形式的单一颜色值。
-     * 设定方法
-     * @see ShapeButton.setBgColorStateList
-     * 单独设定[ShapeButton.normalBgColor]时参考下列方法
-     * @see ShapeButton.setNormalBgColor
+     * Button background color value in different states(in 0xAARRGGBB).
+     *
+     * **You should not use it if you want to set the gradient color**
+     *
+     * @see setBgColorStateList
+     * @see setNormalBgColor
      */
     var normalBgColor: Int = 0
         private set
@@ -147,12 +172,10 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         private set
 
     /**
-     * 按钮不同状态边框色
-     * 注意:这些颜色均为0xAARRGGBB形式的单一颜色值。
-     * 设定方法
-     * @see ShapeButton.setStrokeColorStateList
-     * 单独设定[ShapeButton.normalStrokeColor]时参考下列方法
-     * @see ShapeButton.setNormalStrokeColor
+     * Button stroke color value in different states(in 0xAARRGGBB).
+     *
+     * @see setStrokeColorStateList
+     * @see setNormalStrokeColor
      */
     var normalStrokeColor: Int = 0
         private set
@@ -173,34 +196,25 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 背景在不同点击状态下的颜色
-     * 设定方法
-     * @see ShapeButton.setBgColorStateList
+     * Button background color in different states(in 0xAARRGGBB).
+     *
+     * @see setBgColorStateList
      */
     private val statesBgColor = IntArray(6) { it.inc() }
 
     /**
-     * 边框在不同点击状态下的颜色
-     * 设定方法
-     * @see ShapeButton.setStrokeColorStateList
+     * Button stroke color in different states(in 0xAARRGGBB).
+     *
+     * @see setStrokeColorStateList
      */
     private val statesStrokeColor = IntArray(6) { it.inc() }
 
-    //用于设定尺寸
     private val density = context.resources.displayMetrics.density
 
-    /**
-     * 其支持的按钮类型请参考 [ShapeButtonShapeType]
-     * @param shapeButtonShapeType ShapeButtonShapeType
-     */
     fun setButtonShapeType(shapeButtonShapeType: ShapeButtonShapeType) {
         buttonShape = shapeButtonShapeType.typeValue
     }
 
-    /**
-     * 获取按钮的形状
-     * @return ShapeButtonShapeType
-     */
     fun getButtonShapeType() = when(buttonShape){
         1->ShapeButtonShapeType.OVAL_SHAPE
         2->ShapeButtonShapeType.RECT_SHAPE
@@ -210,45 +224,40 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 设置矩形按钮的宽度
-     * @param rectButtonWidth Float
+     * Set rect button width(in pixels).
      */
     fun setRectButtonWidth(@FloatRange(from = 0.0)rectButtonWidth:Float){
         this.rectButtonWidth = rectButtonWidth*density
     }
 
     /**
-     * 设置矩形按钮的高度
-     * @param rectButtonHeight Float
+     * Set rect button height(in pixels).
      */
     fun setRectButtonHeight(@FloatRange(from = 0.0)rectButtonHeight:Float){
         this.rectButtonHeight = rectButtonHeight*density
     }
 
     /**
-     * 设置圆形按钮的半径 单位是dp
-     * @param ovalButtonRadius Float
+     * Set oval button radius(in pixels).
      */
     fun setOvalButtonRadius(@FloatRange(from = 0.0)ovalButtonRadius: Float) {
         this.ovalButtonRadius = ovalButtonRadius*density
     }
 
     /**
-     * 设置圆角矩形的圆角半径 单位是dp
-     * @param roundedRectCornerRadius Float
+     * Set corner radius(in pixels).
      */
     fun setRoundedRectCornerRadius(@FloatRange(from = 0.0)roundedRectCornerRadius: Float) {
         this.roundedRectCornerRadius = roundedRectCornerRadius*density
     }
 
     /**
-     * 获取到圆角矩形的圆角半径 单位是dp
-     * @return Float
+     * Get corner radius(in pixels).
      */
     fun getRoundedRectCornerRadius() = roundedRectCornerRadius/density
 
     /**
-     * 设定任意圆角按钮的圆角半径 单位是dp
+     * Set corner radius for any rounded corner rect(in pixels).
      * @param leftTopCornerRadius Float
      * @param leftBottomCornerRadius Float
      * @param rightTopCornerRadius Float
@@ -266,7 +275,6 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         this.rightBottomCornerRadius = rightBottomCornerRadius*density
     }
 
-    //设定任意圆角矩形的圆角半径 单位dp
     fun setLeftTopCornerRadius(@FloatRange(from = 0.0)leftTopCornerRadius: Float = 0f) {
         this.leftTopCornerRadius = leftTopCornerRadius*density
     }
@@ -280,36 +288,33 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         this.rightBottomCornerRadius = rightBottomCornerRadius*density
     }
 
-    //获取任意圆角矩形的圆角半径 单位dp
+    // Get corner radius for any rounded corner rect(in pixels).
     fun getLeftTopCornerRadius() = leftTopCornerRadius/density
     fun getLeftBottomCornerRadius() = leftBottomCornerRadius/density
     fun getRightTopCornerRadius() = rightTopCornerRadius/density
     fun getRightBottomCornerRadius() = rightBottomCornerRadius/density
 
     /**
-     * 设定按钮是否填充
-     * @param isSolid Boolean
+     * `true` is solid color gradient,`false` otherwise.
      */
     fun setIsSolid(isSolid: Boolean){
         this.isSolid = isSolid
     }
 
     /**
-     * 边框宽度 单位dp
-     * @param strokeWidth Float
+     * Set button stroke width(in pixels).
      */
     fun setStrokeWidth(@FloatRange(from = 0.0)strokeWidth: Float) {
         this.strokeWidth = strokeWidth*density
     }
 
     /**
-     * 获取边框宽度
-     * @return Float
+     * Get button stroke width(in pixels).
      */
     fun getStrokeWidth()=strokeWidth/density
 
     /**
-     * 设置是否采用渐变填充色
+     * `true` is solid color gradient,`false` otherwise.
      * @param isSolidColorGradient Boolean
      */
     fun setIsSolidColorGradient(isSolidColorGradient: Boolean) {
@@ -317,7 +322,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 设置渐变填充色
+     * Set solid gradient color.
      * @param startSolidColor Int
      * @param centerSolidColor Int
      * @param endSolidColor Int
@@ -329,11 +334,15 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 设定默认背景色
+     * Set Normal Background Color
+     *
+     * Calling this method will default the background
+     * color of the button in all states to [normalBgColor]
+     *
+     * If you want to set the background color in different
+     * states,it is recommended that you use [setBgColorStateList]
+     *
      * @param normalBgColor Int
-     * 注意:调用此方法会默认将所有状态下按钮的颜色均为[ShapeButton.normalBgColor]
-     * 如果想要设定不同状态下的颜色,建议你使用下面的方法:
-     * @see ShapeButton.setBgColorStateList
      */
     fun setNormalBgColor(@ColorInt normalBgColor: Int) {
         this.normalBgColor = normalBgColor
@@ -343,11 +352,14 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 设定默认边框色
+     * Set Normal Stroke Color
+     *
+     * Calling this method will default the stroke
+     * color of the button in all states to [normalStrokeColor]
+     *
+     * If you want to set the stroke color in different
+     * states,it is recommended that you use [setStrokeColorStateList]
      * @param normalStrokeColor Int
-     * 注意:调用此方法会默认将所有状态下按钮的颜色均为[ShapeButton.normalStrokeColor]
-     * 如果想要设定不同状态下的颜色,建议你使用下面的方法:
-     * @see ShapeButton.setStrokeColorStateList
      */
     fun setNormalStrokeColor(@ColorInt normalStrokeColor: Int) {
         this.normalStrokeColor = normalStrokeColor
@@ -357,11 +369,11 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 设置背景色
-     * @param normal Int 默认状态背景色
-     * @param pressed Int 指当用户点击或者触摸该控件的背景色
-     * @param focused Int 指当前控件获得焦点时的背景色
-     * @param unable Int 指当前窗口获得焦点时的背景色
+     * Set background color of the button.
+     * @param normal Int Default button background color
+     * @param pressed Int Button background color when button is pressed.
+     * @param focused Int Button background color when button is focused.
+     * @param unable Int Button background color when button is unable.
      */
     fun setBgColorStateList(normal: Int, pressed: Int, focused: Int, unable: Int) {
         statesBgColor.apply {
@@ -375,11 +387,11 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 设置背景色
-     * @param normal Int 默认状态边框色
-     * @param pressed Int 指当用户点击或者触摸该控件的边框色
-     * @param focused Int 指当前控件获得焦点时的边框色
-     * @param unable Int 指当前窗口获得焦点时的边框色
+     * Set stroke color of the button.
+     * @param normal Int Default button stroke color.
+     * @param pressed Int Button stroke color when button is pressed.
+     * @param focused Int Button stroke color when button is focused.
+     * @param unable Int Button stroke color when button is unable.
      */
     fun setStrokeColorStateList(normal: Int, pressed: Int, focused: Int, unable: Int) {
         statesStrokeColor.apply {
@@ -393,18 +405,13 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * 其支持的按钮类型请参考 [ShapeButtonGradientType]
-     * @param shapeButtonGradientType ShapeButtonGradientType
+     * @see ShapeButtonGradientType
      */
-    fun setGradientDirectionType(shapeButtonGradientType: ShapeButtonGradientType) {
-        gradientDirection = shapeButtonGradientType.typeValue
+    fun setGradientOrientationType(shapeButtonGradientType: ShapeButtonGradientType) {
+        gradientOrientation = shapeButtonGradientType.typeValue
     }
 
-    /**
-     * 按钮的渐变类型
-     * @return ShapeButtonGradientType
-     */
-    fun getGradientDirectionTyp() = when(gradientDirection){
+    fun getGradientDirectionTyp() = when(gradientOrientation){
         GradientDrawable.LINEAR_GRADIENT->ShapeButtonGradientType.LINEAR_GRADIENT
         GradientDrawable.RADIAL_GRADIENT->ShapeButtonGradientType.RADIAL_GRADIENT
         GradientDrawable.SWEEP_GRADIENT->ShapeButtonGradientType.SWEEP_GRADIENT
@@ -449,10 +456,11 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         val drawable = GradientDrawable()
         drawable.apply {
 
-            gradientType = gradientDirection
+            gradientType = gradientOrientation
 
             /**
-             * 基于这种设计模式,会使得按钮存在一个缺陷,就是无法设定渐变色为状态颜色
+             * Based on this design pattern, there will be a defect in the button,
+             * that is, the gradient color cannot be set as the state color.
              */
             if (isSolid) {
                 if (isSolidColorGradient) {
@@ -526,7 +534,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         focusedStrokeColor = ta.getColor(R.styleable.ShapeButton_button_focused_stroke_color, normalStrokeColor)
         unableStrokeColor = ta.getColor(R.styleable.ShapeButton_button_unable_stroke_color, normalStrokeColor)
 
-        gradientDirection = ta.getInteger(R.styleable.ShapeButton_button_gradient_type, GradientDrawable.LINEAR_GRADIENT)
+        gradientOrientation = ta.getInteger(R.styleable.ShapeButton_button_gradient_type, GradientDrawable.LINEAR_GRADIENT)
 
         statesBgColor.apply {
             set(0, pressedBgColor)
@@ -548,6 +556,6 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
 
         create()
 
-        ta.recycle() //回收TypedArray
+        ta.recycle()
     }
 }

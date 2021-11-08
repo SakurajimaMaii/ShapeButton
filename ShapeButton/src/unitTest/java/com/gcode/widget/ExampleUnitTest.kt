@@ -1,11 +1,11 @@
-package com.gcode.gstylebuttonsampledemo
+package com.gcode.widget
 
 import org.junit.Test
 
 import org.junit.Assert.*
 
 /**
- * Example local unit test, which will execute on the development machine (host).
+ * Example local unit unitTest, which will execute on the development machine (host).
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */

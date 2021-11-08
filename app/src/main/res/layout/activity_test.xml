@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".TestActivity">
-    <com.gcode.widget.ShapeButton
+    <com.gcode.shapebutton.ShapeButton
         android:id="@+id/button3"
         android:focusableInTouchMode="true"
         android:layout_margin="10dp"
@@ -18,7 +18,7 @@
         app:button_rect_width="100dp"
         app:button_rect_height="200dp"/>
 
-    <com.gcode.widget.ShapeButton
+    <com.gcode.shapebutton.ShapeButton
         android:id="@+id/button4"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"

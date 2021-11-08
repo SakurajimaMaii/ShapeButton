@@ -1,4 +1,4 @@
-package com.gcode.gstylebuttonsampledemo
+package com.gcode.shapebuttonsampledemo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

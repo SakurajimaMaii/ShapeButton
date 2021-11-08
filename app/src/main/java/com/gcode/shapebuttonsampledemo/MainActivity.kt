@@ -1,7 +1,8 @@
-package com.gcode.gstylebuttonsampledemo
+package com.gcode.shapebuttonsampledemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.gcode.gstylebuttonsampledemo.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

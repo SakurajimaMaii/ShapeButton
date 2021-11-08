@@ -1,4 +1,4 @@
-package com.gcode.widget
+package com.gcode.shapebutton
 
 import android.graphics.drawable.GradientDrawable
 
