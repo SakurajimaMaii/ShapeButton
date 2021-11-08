@@ -98,10 +98,10 @@ button4.apply {
 |        button_rect_height         | dimension |            Height of the rectangular button            |                                                                          |
 |        button_oval_radius         | dimension |                     Oval button radius                     |                                                                          |
 | button_rounded_rect_corner_radius | dimension |     Rounded radius of rounded rectangular button     |                                                                          |
-|   button_left_top_corner_radius   | dimension | **LT** rounded radii of any rounded rectangular button |                                                                          |
-| button_left_bottom_corner_radius  | dimension | **LB** rounded radii of any rounded rectangular button |                                                                          |
-|  button_right_top_corner_radius   | dimension | **RT** rounded radii of any rounded rectangular button |                                                                          |
-| button_right_bottom_corner_radius | dimension | **RB** rounded radii of any rounded rectangular button |                                                                          |
+|   button_left_top_corner_radius   | dimension | **LT** corner radii of any rounded rectangular button |                                                                          |
+| button_left_bottom_corner_radius  | dimension | **LB** corner radii of any rounded rectangular button |                                                                          |
+|  button_right_top_corner_radius   | dimension | **RT** corner radii of any rounded rectangular button |                                                                          |
+| button_right_bottom_corner_radius | dimension | **RB** corner radii of any rounded rectangular button |                                                                          |
 |          button_is_solid          |  boolean  |         `true` is button solid,`false` otherwise          |                              true<br>false                               |
 |  button_is_solid_color_gradient   |  boolean  |     `true` is solid color gradient,`false` otherwise      |                              true<br>false                               |
 |     button_start_solid_color      |   color   |                 **Start** solid color                  |                                                                          |
