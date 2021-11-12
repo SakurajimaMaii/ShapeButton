@@ -49,25 +49,24 @@ import com.gcode.widget.R
  * @property density Float
  * @constructor
  */
-class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompatButton(context, attrs) {
-
-    companion object{
-        const val viewTag = "ShapeButton"
-    }
+class ShapeButton constructor(context: Context, attrs: AttributeSet) :
+    AppCompatButton(context, attrs) {
 
     /**
      * Button shape
-     * [ShapeButtonShapeType.OVAL_SHAPE]
-     * [ShapeButtonShapeType.RECT_SHAPE]
-     * [ShapeButtonShapeType.ROUNDED_RECT_SHAPE]
-     * [ShapeButtonShapeType.ANY_ROUNDED_RECT_SHAPE]
+     * [ShapeButtonConstant.OVAL_SHAPE]
+     * [ShapeButtonConstant.RECT_SHAPE]
+     * [ShapeButtonConstant.ROUNDED_RECT_SHAPE]
+     * [ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE]
      */
-    private var buttonShape: Int = ShapeButtonShapeType.RECT_SHAPE.typeValue
+    var buttonShape: Int = ShapeButtonConstant.RECT_SHAPE
+        private set
 
     /**
      * Button solid color gradient orientation.
      */
-    private var gradientOrientation: Int = ShapeButtonGradientType.LINEAR_GRADIENT.typeValue
+    var gradientOrientation: Int = ShapeButtonConstant.LINEAR_GRADIENT
+        private set
 
     /**
      * Rect button size,if you want to set
@@ -79,8 +78,8 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
      * please refer to [buttonWidth]<br/>
      * [buttonHeight] if you need to get it.
      */
-    private var rectButtonWidth:Float = 0f
-    private var rectButtonHeight:Float = 0f
+    private var rectButtonWidth: Float = 0f
+    private var rectButtonHeight: Float = 0f
 
     /**
      * Oval button radius.if you want to set
@@ -96,32 +95,52 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     /**
      * Button width(in pixels).
      */
-    val buttonWidth:Float
-        get() = (if(buttonShape == ShapeButtonShapeType.OVAL_SHAPE.typeValue){ 2*ovalButtonRadius }else{rectButtonWidth})/density
+    val buttonWidth: Float
+        get() = (if (buttonShape == ShapeButtonConstant.OVAL_SHAPE) {
+            2 * ovalButtonRadius
+        } else {
+            rectButtonWidth
+        })
 
     /**
      * Button height(in pixels).
      */
-    val buttonHeight:Float
-        get() = (if(buttonShape == ShapeButtonShapeType.OVAL_SHAPE.typeValue){ 2*ovalButtonRadius }else{rectButtonHeight})/density
+    val buttonHeight: Float
+        get() = (if (buttonShape == ShapeButtonConstant.OVAL_SHAPE) {
+            2 * ovalButtonRadius
+        } else {
+            rectButtonHeight
+        })
 
     /**
-     * Rounded rect corner radius.
-     * @see setRoundedRectCornerRadius
-     * @see getRoundedRectCornerRadius
+     * Rounded rect corner radius(in pixels).
      */
-    private var roundedRectCornerRadius: Float = 0f
+    var roundedRectCornerRadius: Float = 0f
+        private set
 
     /**
-     * Corner radius for any rounded corner rect.
-     * @see setAnyRoundedRectCornerRadius
-     * @see getLeftTopCornerRadius
-     * @see setLeftTopCornerRadius
+     * Left top corner radius(in pixels).
      */
-    private var leftTopCornerRadius: Float = 0f
-    private var leftBottomCornerRadius: Float = 0f
-    private var rightTopCornerRadius: Float = 0f
-    private var rightBottomCornerRadius: Float = 0f
+    var leftTopCornerRadius: Float = 0f
+        private set
+
+    /**
+     * Left bottom corner radius(in pixels).
+     */
+    var leftBottomCornerRadius: Float = 0f
+        private set
+
+    /**
+     * Right top corner radius(in pixels).
+     */
+    var rightTopCornerRadius: Float = 0f
+        private set
+
+    /**
+     * Right bottom corner radius(in pixels).
+     */
+    var rightBottomCornerRadius: Float = 0f
+        private set
 
     /**
      * `true` if the button is solid,`false` otherwise.
@@ -131,9 +150,10 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         private set
 
     /**
-     * Stroke width
+     * Stroke width(in pixels).
      */
-    private var strokeWidth: Float = 0f
+    var strokeWidth: Float = 0f
+        private set
 
     /**
      * `true` if the solid color is gradient,`false` otherwise.
@@ -189,7 +209,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     private val states = arrayOfNulls<IntArray>(6).apply {
         set(0, intArrayOf(android.R.attr.state_pressed, android.R.attr.state_enabled))
         set(1, intArrayOf(android.R.attr.state_focused, android.R.attr.state_enabled))
-        set(2, intArrayOf(-android.R.attr.state_focused,android.R.attr.state_enabled))
+        set(2, intArrayOf(-android.R.attr.state_focused, android.R.attr.state_enabled))
         set(3, intArrayOf(android.R.attr.state_focused))
         set(4, intArrayOf(android.R.attr.state_window_focused))
         set(5, intArrayOf())
@@ -211,107 +231,95 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
 
     private val density = context.resources.displayMetrics.density
 
-    fun setButtonShapeType(shapeButtonShapeType: ShapeButtonShapeType) {
-        buttonShape = shapeButtonShapeType.typeValue
-    }
-
-    fun getButtonShapeType() = when(buttonShape){
-        1->ShapeButtonShapeType.OVAL_SHAPE
-        2->ShapeButtonShapeType.RECT_SHAPE
-        3->ShapeButtonShapeType.ROUNDED_RECT_SHAPE
-        4->ShapeButtonShapeType.ANY_ROUNDED_RECT_SHAPE
-        else->ShapeButtonShapeType.RECT_SHAPE
+    /**
+     * Set buttonShape
+     * @param buttonShape you can set the value from one of the
+     * [ShapeButtonConstant.OVAL_SHAPE]<br>
+     * [ShapeButtonConstant.RECT_SHAPE]<br>
+     * [ShapeButtonConstant.ROUNDED_RECT_SHAPE]<br>
+     * [ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE]
+     */
+    fun setButtonShapeType(@ShapeButtonConstant.ShapeType buttonShape: Int) {
+        this.buttonShape = buttonShape
     }
 
     /**
-     * Set rect button width(in pixels).
+     * Set rect button width(in dp).
      */
-    fun setRectButtonWidth(@FloatRange(from = 0.0)rectButtonWidth:Float){
-        this.rectButtonWidth = rectButtonWidth*density
+    fun setRectButtonWidth(@FloatRange(from = 0.0) rectButtonWidth: Float) {
+        this.rectButtonWidth = rectButtonWidth * density
     }
 
     /**
-     * Set rect button height(in pixels).
+     * Set rect button height(in dp).
      */
-    fun setRectButtonHeight(@FloatRange(from = 0.0)rectButtonHeight:Float){
-        this.rectButtonHeight = rectButtonHeight*density
+    fun setRectButtonHeight(@FloatRange(from = 0.0) rectButtonHeight: Float) {
+        this.rectButtonHeight = rectButtonHeight * density
     }
 
     /**
-     * Set oval button radius(in pixels).
+     * Set oval button radius(in dp).
      */
-    fun setOvalButtonRadius(@FloatRange(from = 0.0)ovalButtonRadius: Float) {
-        this.ovalButtonRadius = ovalButtonRadius*density
+    fun setOvalButtonRadius(@FloatRange(from = 0.0) ovalButtonRadius: Float) {
+        this.ovalButtonRadius = ovalButtonRadius * density
     }
 
     /**
      * Set corner radius(in pixels).
      */
-    fun setRoundedRectCornerRadius(@FloatRange(from = 0.0)roundedRectCornerRadius: Float) {
-        this.roundedRectCornerRadius = roundedRectCornerRadius*density
+    fun setRoundedRectCornerRadius(@FloatRange(from = 0.0) roundedRectCornerRadius: Float) {
+        this.roundedRectCornerRadius = roundedRectCornerRadius * density
     }
 
     /**
-     * Get corner radius(in pixels).
-     */
-    fun getRoundedRectCornerRadius() = roundedRectCornerRadius/density
-
-    /**
-     * Set corner radius for any rounded corner rect(in pixels).
+     * Set corner radius for any rounded corner rect(in dp).
      * @param leftTopCornerRadius Float
      * @param leftBottomCornerRadius Float
      * @param rightTopCornerRadius Float
      * @param rightBottomCornerRadius Float
      */
-    fun setAnyRoundedRectCornerRadius(@FloatRange(from = 0.0)leftTopCornerRadius: Float = 0f,
-                                      @FloatRange(from = 0.0)leftBottomCornerRadius: Float = 0f,
-                                      @FloatRange(from = 0.0)rightTopCornerRadius: Float = 0f,
-                                      @FloatRange(from = 0.0)rightBottomCornerRadius: Float = 0f
+    fun setAnyRoundedRectCornerRadius(
+        @FloatRange(from = 0.0) leftTopCornerRadius: Float = 0f,
+        @FloatRange(from = 0.0) leftBottomCornerRadius: Float = 0f,
+        @FloatRange(from = 0.0) rightTopCornerRadius: Float = 0f,
+        @FloatRange(from = 0.0) rightBottomCornerRadius: Float = 0f
 
-    ){
-        this.leftTopCornerRadius = leftTopCornerRadius*density
-        this.leftBottomCornerRadius = leftBottomCornerRadius*density
-        this.rightTopCornerRadius = rightTopCornerRadius*density
-        this.rightBottomCornerRadius = rightBottomCornerRadius*density
-    }
-
-    fun setLeftTopCornerRadius(@FloatRange(from = 0.0)leftTopCornerRadius: Float = 0f) {
-        this.leftTopCornerRadius = leftTopCornerRadius*density
-    }
-    fun getLeftBottomCornerRadius(@FloatRange(from = 0.0)leftBottomCornerRadius: Float = 0f){
-        this.leftBottomCornerRadius = leftBottomCornerRadius*density
-    }
-    fun getRightTopCornerRadius(@FloatRange(from = 0.0)rightTopCornerRadius: Float = 0f){
-        this.rightTopCornerRadius = rightTopCornerRadius*density
-    }
-    fun getRightBottomCornerRadius(@FloatRange(from = 0.0)rightBottomCornerRadius: Float = 0f) {
-        this.rightBottomCornerRadius = rightBottomCornerRadius*density
+    ) {
+        this.leftTopCornerRadius = leftTopCornerRadius * density
+        this.leftBottomCornerRadius = leftBottomCornerRadius * density
+        this.rightTopCornerRadius = rightTopCornerRadius * density
+        this.rightBottomCornerRadius = rightBottomCornerRadius * density
     }
 
-    // Get corner radius for any rounded corner rect(in pixels).
-    fun getLeftTopCornerRadius() = leftTopCornerRadius/density
-    fun getLeftBottomCornerRadius() = leftBottomCornerRadius/density
-    fun getRightTopCornerRadius() = rightTopCornerRadius/density
-    fun getRightBottomCornerRadius() = rightBottomCornerRadius/density
+    fun setLeftTopCornerRadius(@FloatRange(from = 0.0) leftTopCornerRadius: Float = 0f) {
+        this.leftTopCornerRadius = leftTopCornerRadius * density
+    }
+
+    fun setLeftBottomCornerRadius(@FloatRange(from = 0.0) leftBottomCornerRadius: Float = 0f) {
+        this.leftBottomCornerRadius = leftBottomCornerRadius * density
+    }
+
+    fun setRightTopCornerRadius(@FloatRange(from = 0.0) rightTopCornerRadius: Float = 0f) {
+        this.rightTopCornerRadius = rightTopCornerRadius * density
+    }
+
+    fun setRightBottomCornerRadius(@FloatRange(from = 0.0) rightBottomCornerRadius: Float = 0f) {
+        this.rightBottomCornerRadius = rightBottomCornerRadius * density
+    }
 
     /**
      * `true` is solid color gradient,`false` otherwise.
      */
-    fun setIsSolid(isSolid: Boolean){
+    fun setIsSolid(isSolid: Boolean) {
         this.isSolid = isSolid
     }
 
     /**
      * Set button stroke width(in pixels).
      */
-    fun setStrokeWidth(@FloatRange(from = 0.0)strokeWidth: Float) {
-        this.strokeWidth = strokeWidth*density
+    fun setStrokeWidth(@FloatRange(from = 0.0) strokeWidth: Float) {
+        this.strokeWidth = strokeWidth * density
     }
-
-    /**
-     * Get button stroke width(in pixels).
-     */
-    fun getStrokeWidth()=strokeWidth/density
 
     /**
      * `true` is solid color gradient,`false` otherwise.
@@ -327,7 +335,11 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
      * @param centerSolidColor Int
      * @param endSolidColor Int
      */
-    fun setSolidColorGradient(@ColorInt startSolidColor: Int,@ColorInt centerSolidColor: Int,@ColorInt endSolidColor: Int) {
+    fun setSolidColorGradient(
+        @ColorInt startSolidColor: Int,
+        @ColorInt centerSolidColor: Int,
+        @ColorInt endSolidColor: Int
+    ) {
         this.startSolidColor = startSolidColor
         this.centerSolidColor = centerSolidColor
         this.endSolidColor = endSolidColor
@@ -346,7 +358,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
      */
     fun setNormalBgColor(@ColorInt normalBgColor: Int) {
         this.normalBgColor = normalBgColor
-        for ((index, _) in statesBgColor.withIndex()){
+        for ((index, _) in statesBgColor.withIndex()) {
             statesBgColor[index] = normalBgColor
         }
     }
@@ -363,7 +375,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
      */
     fun setNormalStrokeColor(@ColorInt normalStrokeColor: Int) {
         this.normalStrokeColor = normalStrokeColor
-        for ((index, _) in statesStrokeColor.withIndex()){
+        for ((index, _) in statesStrokeColor.withIndex()) {
             statesStrokeColor[index] = normalStrokeColor
         }
     }
@@ -405,17 +417,15 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     }
 
     /**
-     * @see ShapeButtonGradientType
+     * Set Gradient Orientation
+     *
+     * @param gradientOrientation you can set the value from one of the
+     * [ShapeButtonConstant.LINEAR_GRADIENT]<br>
+     * [ShapeButtonConstant.SWEEP_GRADIENT]<br>
+     * [ShapeButtonConstant.RADIAL_GRADIENT]
      */
-    fun setGradientOrientationType(shapeButtonGradientType: ShapeButtonGradientType) {
-        gradientOrientation = shapeButtonGradientType.typeValue
-    }
-
-    fun getGradientDirectionTyp() = when(gradientOrientation){
-        GradientDrawable.LINEAR_GRADIENT->ShapeButtonGradientType.LINEAR_GRADIENT
-        GradientDrawable.RADIAL_GRADIENT->ShapeButtonGradientType.RADIAL_GRADIENT
-        GradientDrawable.SWEEP_GRADIENT->ShapeButtonGradientType.SWEEP_GRADIENT
-        else->ShapeButtonGradientType.LINEAR_GRADIENT
+    fun setGradientOrientation(@ShapeButtonConstant.GradientType gradientOrientation: Int) {
+        this.gradientOrientation = gradientOrientation
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -427,7 +437,9 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         val specSize: Int = MeasureSpec.getSize(measureSpec)
         return when (specMode) {
             MeasureSpec.EXACTLY ->
-                if(specSize<paddingLeft + paddingRight + buttonWidth.toInt()){specSize}else{
+                if (specSize < paddingLeft + paddingRight + buttonWidth.toInt()) {
+                    specSize
+                } else {
                     paddingLeft + paddingRight + buttonWidth.toInt()
                 }
             MeasureSpec.AT_MOST -> {
@@ -442,7 +454,9 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
         val specSize = MeasureSpec.getSize(measureSpec)
         return when (specMode) {
             MeasureSpec.EXACTLY ->
-                if(specSize<paddingTop + paddingBottom + buttonHeight.toInt()){specSize}else{
+                if (specSize < paddingTop + paddingBottom + buttonHeight.toInt()) {
+                    specSize
+                } else {
                     paddingTop + paddingBottom + buttonHeight.toInt()
                 }
             MeasureSpec.AT_MOST -> {
@@ -473,16 +487,16 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
             setStroke(strokeWidth.toInt(), ColorStateList(states, statesStrokeColor))
 
             when (buttonShape) {
-                ShapeButtonShapeType.OVAL_SHAPE.typeValue -> {
+                ShapeButtonConstant.OVAL_SHAPE -> {
                     shape = GradientDrawable.OVAL
                 }
-                ShapeButtonShapeType.RECT_SHAPE.typeValue -> {
+                ShapeButtonConstant.RECT_SHAPE -> {
                     shape = GradientDrawable.RECTANGLE
                 }
-                ShapeButtonShapeType.ROUNDED_RECT_SHAPE.typeValue -> {
+                ShapeButtonConstant.ROUNDED_RECT_SHAPE -> {
                     cornerRadius = roundedRectCornerRadius
                 }
-                ShapeButtonShapeType.ANY_ROUNDED_RECT_SHAPE.typeValue -> {
+                ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE -> {
                     cornerRadii = floatArrayOf(
                         leftTopCornerRadius,
                         leftTopCornerRadius,
@@ -502,39 +516,69 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) : AppCompat
     init {
         val ta: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.ShapeButton)
 
-        buttonShape = ta.getInteger(R.styleable.ShapeButton_button_shape, ShapeButtonShapeType.RECT_SHAPE.typeValue)
+        buttonShape = ta.getInteger(
+            R.styleable.ShapeButton_button_shape,
+            ShapeButtonConstant.RECT_SHAPE
+        )
 
         ovalButtonRadius = ta.getDimension(R.styleable.ShapeButton_button_oval_radius, 0f)
 
-        rectButtonWidth = ta.getDimension(R.styleable.ShapeButton_button_rect_width,0f)
-        rectButtonHeight = ta.getDimension(R.styleable.ShapeButton_button_rect_height,0f)
+        rectButtonWidth = ta.getDimension(R.styleable.ShapeButton_button_rect_width, 0f)
+        rectButtonHeight = ta.getDimension(R.styleable.ShapeButton_button_rect_height, 0f)
 
-        roundedRectCornerRadius = ta.getDimension(R.styleable.ShapeButton_button_rounded_rect_corner_radius, 0f)
-        leftTopCornerRadius = ta.getDimension(R.styleable.ShapeButton_button_left_top_corner_radius, 0f)
-        leftBottomCornerRadius = ta.getDimension(R.styleable.ShapeButton_button_left_bottom_corner_radius, 0f)
-        rightTopCornerRadius = ta.getDimension(R.styleable.ShapeButton_button_right_top_corner_radius, 0f)
-        rightBottomCornerRadius = ta.getDimension(R.styleable.ShapeButton_button_right_bottom_corner_radius, 0f)
+        roundedRectCornerRadius =
+            ta.getDimension(R.styleable.ShapeButton_button_rounded_rect_corner_radius, 0f)
+        leftTopCornerRadius =
+            ta.getDimension(R.styleable.ShapeButton_button_left_top_corner_radius, 0f)
+        leftBottomCornerRadius =
+            ta.getDimension(R.styleable.ShapeButton_button_left_bottom_corner_radius, 0f)
+        rightTopCornerRadius =
+            ta.getDimension(R.styleable.ShapeButton_button_right_top_corner_radius, 0f)
+        rightBottomCornerRadius =
+            ta.getDimension(R.styleable.ShapeButton_button_right_bottom_corner_radius, 0f)
 
         isSolid = ta.getBoolean(R.styleable.ShapeButton_button_is_solid, true)
 
         strokeWidth = ta.getDimension(R.styleable.ShapeButton_button_stroke_width, 0f)
 
-        isSolidColorGradient = ta.getBoolean(R.styleable.ShapeButton_button_is_solid_color_gradient, false)
-        startSolidColor = ta.getColor(R.styleable.ShapeButton_button_start_solid_color, ContextCompat.getColor(context, R.color.white))
-        centerSolidColor = ta.getColor(R.styleable.ShapeButton_button_center_solid_color, ContextCompat.getColor(context, R.color.white))
-        endSolidColor = ta.getColor(R.styleable.ShapeButton_button_end_solid_color, ContextCompat.getColor(context, R.color.white))
+        isSolidColorGradient =
+            ta.getBoolean(R.styleable.ShapeButton_button_is_solid_color_gradient, false)
+        startSolidColor = ta.getColor(
+            R.styleable.ShapeButton_button_start_solid_color,
+            ContextCompat.getColor(context, R.color.white)
+        )
+        centerSolidColor = ta.getColor(
+            R.styleable.ShapeButton_button_center_solid_color,
+            ContextCompat.getColor(context, R.color.white)
+        )
+        endSolidColor = ta.getColor(
+            R.styleable.ShapeButton_button_end_solid_color,
+            ContextCompat.getColor(context, R.color.white)
+        )
 
-        normalBgColor = ta.getColor(R.styleable.ShapeButton_button_normal_bg_color, ContextCompat.getColor(context, R.color.default_color))
+        normalBgColor = ta.getColor(
+            R.styleable.ShapeButton_button_normal_bg_color,
+            ContextCompat.getColor(context, R.color.default_color)
+        )
         pressedBgColor = ta.getColor(R.styleable.ShapeButton_button_pressed_bg_color, normalBgColor)
         focusedBgColor = ta.getColor(R.styleable.ShapeButton_button_focused_bg_color, normalBgColor)
         unableBgColor = ta.getColor(R.styleable.ShapeButton_button_unable_bg_color, normalBgColor)
 
-        normalStrokeColor = ta.getColor(R.styleable.ShapeButton_button_normal_stroke_color, ContextCompat.getColor(context, R.color.default_color))
-        pressedStrokeColor = ta.getColor(R.styleable.ShapeButton_button_pressed_stroke_color, normalStrokeColor)
-        focusedStrokeColor = ta.getColor(R.styleable.ShapeButton_button_focused_stroke_color, normalStrokeColor)
-        unableStrokeColor = ta.getColor(R.styleable.ShapeButton_button_unable_stroke_color, normalStrokeColor)
+        normalStrokeColor = ta.getColor(
+            R.styleable.ShapeButton_button_normal_stroke_color,
+            ContextCompat.getColor(context, R.color.default_color)
+        )
+        pressedStrokeColor =
+            ta.getColor(R.styleable.ShapeButton_button_pressed_stroke_color, normalStrokeColor)
+        focusedStrokeColor =
+            ta.getColor(R.styleable.ShapeButton_button_focused_stroke_color, normalStrokeColor)
+        unableStrokeColor =
+            ta.getColor(R.styleable.ShapeButton_button_unable_stroke_color, normalStrokeColor)
 
-        gradientOrientation = ta.getInteger(R.styleable.ShapeButton_button_gradient_type, GradientDrawable.LINEAR_GRADIENT)
+        gradientOrientation = ta.getInteger(
+            R.styleable.ShapeButton_button_gradient_type,
+            GradientDrawable.LINEAR_GRADIENT
+        )
 
         statesBgColor.apply {
             set(0, pressedBgColor)

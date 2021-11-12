@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.gcode.gstylebuttonsampledemo.R
 import com.gcode.shapebutton.ShapeButton
-import com.gcode.shapebutton.ShapeButtonGradientType
-import com.gcode.shapebutton.ShapeButtonShapeType
+import com.gcode.shapebutton.ShapeButtonConstant
+import com.gcode.vasttools.utils.DensityUtils
+import com.gcode.vasttools.utils.DensityUtils.dp
 
 class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,11 +22,11 @@ class TestActivity : AppCompatActivity() {
 
         button4.isEnabled = false
         button4.apply {
-            setButtonShapeType(ShapeButtonShapeType.ANY_ROUNDED_RECT_SHAPE)
+            setButtonShapeType(ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE)
             setAnyRoundedRectCornerRadius(10f,0f,20f,0f)
             setIsSolid(true)
             setIsSolidColorGradient(true)
-            setGradientOrientationType(ShapeButtonGradientType.LINEAR_GRADIENT)
+            setGradientOrientation(ShapeButtonConstant.LINEAR_GRADIENT)
             setSolidColorGradient(
                 ContextCompat.getColor(context, R.color.red),
                 ContextCompat.getColor(context, R.color.design_default_color_primary_dark),
@@ -48,7 +49,9 @@ class TestActivity : AppCompatActivity() {
             )
             create()
         }
-        Log.d("MyTest","${button3.getButtonShapeType()} ${button3.buttonHeight}")
 
+        button3.setOnClickListener {
+            Log.d("MyTest","${button4.leftTopCornerRadius} ${10f.dp}")
+        }
     }
 }
