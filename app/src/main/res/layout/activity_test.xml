@@ -5,30 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TestActivity">
+    tools:context="com.gcode.shapebuttonsampledemo.TestActivity">
     <com.gcode.shapebutton.ShapeButton
         android:id="@+id/button3"
         android:focusableInTouchMode="true"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
+        android:text="@string/app_name"
         app:button_shape="rect_shape"
-        app:button_oval_radius="200dp"
         app:button_is_solid="true"
-        app:button_rect_width="100dp"
-        app:button_rect_height="200dp"/>
-
-    <com.gcode.shapebutton.ShapeButton
-        android:id="@+id/button4"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-<!--    <com.gcode.gstylebutton.GStyleButton-->
-<!--        android:id="@+id/button2"-->
-<!--        app:button_shape="rect_shape"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"/>-->
+        app:button_rect_width="400dp"
+        app:button_rect_height="400dp"
+        app:button_is_solid_color_gradient="true"
+        app:button_gradient_type="sweep_shape"
+        app:button_gradient_orientation="tr_bl"
+        app:button_start_solid_color="#F44336"
+        app:button_center_solid_color="#EF5350"
+        app:button_end_solid_color="#9C27B0"/>
 
     <Button
         android:layout_width="match_parent"

@@ -15,58 +15,41 @@ import com.gcode.widget.R
  *作者:created by HP on 2021/3/7 23:34
  *邮箱:sakurajimamai2020@qq.com
  */
-/**
- * ShapeButton
- * @property buttonShape Int
- * @property gradientOrientation Int
- * @property rectButtonWidth Float
- * @property rectButtonHeight Float
- * @property ovalButtonRadius Float
- * @property buttonWidth Float
- * @property buttonHeight Float
- * @property roundedRectCornerRadius Float
- * @property leftTopCornerRadius Float
- * @property leftBottomCornerRadius Float
- * @property rightTopCornerRadius Float
- * @property rightBottomCornerRadius Float
- * @property isSolid Boolean
- * @property strokeWidth Float
- * @property isSolidColorGradient Boolean
- * @property startSolidColor Int
- * @property centerSolidColor Int
- * @property endSolidColor Int
- * @property normalBgColor Int
- * @property pressedBgColor Int
- * @property focusedBgColor Int
- * @property unableBgColor Int
- * @property normalStrokeColor Int
- * @property pressedStrokeColor Int
- * @property focusedStrokeColor Int
- * @property unableStrokeColor Int
- * @property states Array<IntArray?>
- * @property statesBgColor IntArray
- * @property statesStrokeColor IntArray
- * @property density Float
- * @constructor
- */
 class ShapeButton constructor(context: Context, attrs: AttributeSet) :
     AppCompatButton(context, attrs) {
 
     /**
      * Button shape
-     * [ShapeButtonConstant.OVAL_SHAPE]
-     * [ShapeButtonConstant.RECT_SHAPE]
-     * [ShapeButtonConstant.ROUNDED_RECT_SHAPE]
-     * [ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE]
+     * @see [ShapeButtonConstant.OVAL_SHAPE]
+     * @see [ShapeButtonConstant.RECT_SHAPE]
+     * @see [ShapeButtonConstant.ROUNDED_RECT_SHAPE]
+     * @see [ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE]
      */
     var buttonShape: Int = ShapeButtonConstant.RECT_SHAPE
         private set
 
     /**
-     * Button solid color gradient orientation.
+     * Button solid color gradient type.
      */
-    var gradientOrientation: Int = ShapeButtonConstant.LINEAR_GRADIENT
+    var buttonGradientType: Int = GradientDrawable.LINEAR_GRADIENT
         private set
+
+    /**
+     * Button gradient orientation.
+     *
+     * When [buttonGradientType] is set to [GradientDrawable.LINEAR_GRADIENT],you should set
+     * [buttonGradientOrientation].Otherwise, [GradientDrawable.Orientation.TOP_BOTTOM] will
+     * be used as the default value
+     */
+    lateinit var buttonGradientOrientation: GradientDrawable.Orientation
+
+    /**
+     * Button gradient radius
+     *
+     * When [buttonGradientType] is set to [GradientDrawable.RADIAL_GRADIENT],you should set
+     * [buttonGradientRadius].Otherwise, **0** will be used as the default value
+     */
+    var buttonGradientRadius: Int = 0
 
     /**
      * Rect button size,if you want to set
@@ -234,10 +217,10 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
     /**
      * Set buttonShape
      * @param buttonShape you can set the value from one of the
-     * [ShapeButtonConstant.OVAL_SHAPE]<br>
-     * [ShapeButtonConstant.RECT_SHAPE]<br>
-     * [ShapeButtonConstant.ROUNDED_RECT_SHAPE]<br>
-     * [ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE]
+     * @see [ShapeButtonConstant.OVAL_SHAPE]
+     * @see [ShapeButtonConstant.RECT_SHAPE]
+     * @see [ShapeButtonConstant.ROUNDED_RECT_SHAPE]
+     * @see [ShapeButtonConstant.ANY_ROUNDED_RECT_SHAPE]
      */
     fun setButtonShapeType(@ShapeButtonConstant.ShapeType buttonShape: Int) {
         this.buttonShape = buttonShape
@@ -419,13 +402,13 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
     /**
      * Set Gradient Orientation
      *
-     * @param gradientOrientation you can set the value from one of the
-     * [ShapeButtonConstant.LINEAR_GRADIENT]<br>
-     * [ShapeButtonConstant.SWEEP_GRADIENT]<br>
-     * [ShapeButtonConstant.RADIAL_GRADIENT]
+     * @param gradientType you can set the value from one of the
+     * @see [GradientDrawable.LINEAR_GRADIENT]
+     * @see [GradientDrawable.SWEEP_GRADIENT]
+     * @see [GradientDrawable.RADIAL_GRADIENT]
      */
-    fun setGradientOrientation(@ShapeButtonConstant.GradientType gradientOrientation: Int) {
-        this.gradientOrientation = gradientOrientation
+    fun setGradientType(@ShapeButtonConstant.GradientType gradientType: Int) {
+        this.buttonGradientType = gradientType
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -470,7 +453,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
         val drawable = GradientDrawable()
         drawable.apply {
 
-            gradientType = gradientOrientation
+            gradientType = buttonGradientType
 
             /**
              * Based on this design pattern, there will be a defect in the button,
@@ -478,6 +461,10 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
              */
             if (isSolid) {
                 if (isSolidColorGradient) {
+                    orientation = buttonGradientOrientation
+
+                    gradientRadius = buttonWidth.coerceAtLeast(buttonHeight) / 2
+
                     colors = intArrayOf(startSolidColor, centerSolidColor, endSolidColor)
                 } else {
                     color = ColorStateList(states, statesBgColor)
@@ -575,9 +562,19 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
         unableStrokeColor =
             ta.getColor(R.styleable.ShapeButton_button_unable_stroke_color, normalStrokeColor)
 
-        gradientOrientation = ta.getInteger(
+        buttonGradientType = ta.getInteger(
             R.styleable.ShapeButton_button_gradient_type,
             GradientDrawable.LINEAR_GRADIENT
+        )
+
+        buttonGradientOrientation = GradientDrawable.Orientation.values()[ta.getInteger(
+            R.styleable.ShapeButton_button_gradient_orientation,
+            0
+        )]
+
+        buttonGradientRadius = ta.getInteger(
+            R.styleable.ShapeButton_button_gradient_radius,
+            0
         )
 
         statesBgColor.apply {

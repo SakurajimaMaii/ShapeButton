@@ -33,12 +33,25 @@
         <attr name="button_start_solid_color" format="color"/>
         <attr name="button_center_solid_color" format="color"/>
         <attr name="button_end_solid_color" format="color"/>
-        <!--Gradient orientation-->
+        <!--Gradient type-->
         <attr name="button_gradient_type" format="dimension">
             <enum name="linear_gradient" value="0"/>
             <enum name="radial_gradient" value="1"/>
             <enum name="sweep_shape" value="2"/>
         </attr>
+        <!--Gradient orientation-->
+        <attr name="button_gradient_orientation" format="dimension">
+            <enum name="top_bottom" value="0"/>
+            <enum name="tr_bl" value="1"/>
+            <enum name="right_left" value="2"/>
+            <enum name="br_tl" value="3"/>
+            <enum name="bottom_top" value="4"/>
+            <enum name="bl_tr" value="5"/>
+            <enum name="left_right" value="5"/>
+            <enum name="tl_br" value="7"/>
+        </attr>
+        <!--Gradient radius-->
+        <attr name="button_gradient_radius" format="dimension"/>
         <!--The background color in different states-->
         <attr name="button_normal_bg_color" format="color"/>
         <attr name="button_pressed_bg_color" format="color"/>
