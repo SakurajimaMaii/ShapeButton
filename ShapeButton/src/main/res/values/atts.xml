@@ -18,7 +18,7 @@
         <attr name="button_rect_height" format="dimension"/>
         <!--Oval button radius-->
         <attr name="button_oval_radius" format="dimension"/>
-        <!--Rounded radius of rounded rectangular buttons-->
+        <!--Rounded radius of rounded rectangular button-->
         <attr name="button_rounded_rect_corner_radius" format="dimension"/>
         <!--Any rounded radius of any rounded rectangular button -->
         <attr name="button_left_top_corner_radius" format="dimension"/>

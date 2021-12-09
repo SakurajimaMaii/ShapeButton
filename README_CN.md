@@ -1,6 +1,6 @@
 <h1 align="center">ShapeButton</h1>
 
-<p align="center">A custom Android button</p>
+<p align="center">一款支持自定义的安卓按钮控件</p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/compile%20sdk%20version-31-blue"/>
@@ -10,63 +10,43 @@
 <img src="https://jitpack.io/v/SakurajimaMaii/ShapeButton.svg">
 </p>
 
-<div align="center">English | <a href="https://github.com/SakurajimaMaii/ShapeButton/blob/master/README_CN.md">简体中文</a></div>
+<div align="center"><a href="https://github.com/SakurajimaMaii/ShapeButton/blob/master/README.md">English</a> | 简体中文 </div>
 
-## 😀 Preview
+## 💫 特性
+
+😀 支持四种按钮类型 `圆形/椭圆形按钮` `矩形按钮` `圆角矩形按钮` `任意圆角矩形按钮`
+😁 支持自定义按钮尺寸
+😂 支持自定义按钮边框宽度以及颜色
+🤣 支持自定义按钮圆角半径
+😃 支持自定义按钮填充色 `是否填充` `是否采用渐变填充`
+😄 支持自定义渐变填充色以及角度
+😆 支持自定义不同按钮状态下的背景色以及边框颜色
+
 
 <img src="https://img-blog.csdnimg.cn/20210329123251630.png" width="40%">
 <img src="https://img-blog.csdnimg.cn/20210329124016305.png" width="40%">
 
-## 😯 How to
+## 😮 添加引用
 
-### Add it in your root build.gradle at the end of repositories
+1. 在项目根目录下的build.gradle添加
+	```gradle
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+	```
 
-  ```gradle
-  allprojects {
-    repositories {
-      ...
-      maven { url 'https://jitpack.io' }
-    }
-  }
-  ```
+2. 添加依赖
 
-### Add the dependency
+   ```gradle
+   dependencies {
+   	implementation 'com.github.SakurajimaMaii:ShapeButton:0.0.5'
+   }
+	```
 
-  ```gradle
-    dependencies {
-      implementation 'com.github.SakurajimaMaii:ShapeButton:0.0.5'
-    }
-  ```
-
-## 🤔 Button shape currently supported
-
-- **Circular/Oval Button**
-- **Rectangle Button**
-- **Rounded Rectangle Button**
-- **Any rounded rectangle button**
-
-## 😏 The four click states currently supported
-
-- **Default (normal)**
-- **Click or touch (pressed)**
-- **Focused (focused)**
-- **Unable(unable)**
-
-## 😛 Quick use
-
-### Set in XML
-
-```xml
-<com.gcode.widget.ShapeButton
-    android:id="@+id/button"
-    android:layout_margin="10dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-```
-
-### Attribute setting
-
-Here is a **Kotlin** way.
+## 🤓 属性设置
 
 ```kotlin
 button4.apply {
@@ -99,9 +79,9 @@ button4.apply {
 }
 ```
 
-**Finally, you must call the create() method, otherwise it will not take effect.**
+注意,==设定最后一定要调用**create()** 方法,否则无法生效==
 
-## 🙂 Attribute
+## 😝 相关属性说明
 
 |          Attribute name           |   Type    |                      Description                      |                              Default value                               |
 | :-------------------------------: | :-------: | :---------------------------------------------------: | :----------------------------------------------------------------------: |
