@@ -83,31 +83,32 @@ button4.apply {
 
 ## 😝 相关属性说明
 
-|          Attribute name           |   Type    |                      Description                      |                              Default value                               |
-| :-------------------------------: | :-------: | :---------------------------------------------------: | :----------------------------------------------------------------------: |
-|           button_shape            | dimension |                     Button shape                      | oval_shape<br>rect_shape<br>rounded_rect_shape<br>any_rounded_rect_shape |
-|         button_rect_width         | dimension |               Rectangular button width                |                                                                          |
-|        button_rect_height         | dimension |               Rectangular button height               |                                                                          |
-|        button_oval_radius         | dimension |                  Oval button radius                   |                                                                          |
-| button_rounded_rect_corner_radius | dimension |     Rounded radius of rounded rectangular button      |                                                                          |
-|   button_left_top_corner_radius   | dimension | **LT** corner radii of any rounded rectangular button |                                                                          |
-| button_left_bottom_corner_radius  | dimension | **LB** corner radii of any rounded rectangular button |                                                                          |
-|  button_right_top_corner_radius   | dimension | **RT** corner radii of any rounded rectangular button |                                                                          |
-| button_right_bottom_corner_radius | dimension | **RB** corner radii of any rounded rectangular button |                                                                          |
-|          button_is_solid          |  boolean  |       `true` is button solid,`false` otherwise        |                              true<br>false                               |
-|  button_is_solid_color_gradient   |  boolean  |   `true` is solid color gradient,`false` otherwise    |                              true<br>false                               |
-|     button_start_solid_color      |   color   |                 **Start** solid color                 |                                                                          |
-|     button_center_solid_color     |   color   |                **Center** solid color                 |                                                                          |
-|      button_end_solid_color       |   color   |                  **End** solid color                  |                                                                          |
-|       button_gradient_type        | dimension |                     Gradient type                     |            linear_gradient<br>radial_gradient<br>sweep_shape             |
-|    button_gradient_orientation    | dimension |                 Gradient orientation                  |                                                                          |
-|      button_gradient_radius       | dimension |                    Gradient radius                    |                                                                          |
-|        button_stroke_width        | dimension |                     Stroke width                      |                                                                          |
-|      button_normal_bg_color       |   color   |            Default button background color            |                                                                          |
-|      button_pressed_bg_color      |   color   |    Button background color when button is pressed.    |                                                                          |
-|      button_focused_bg_color      |   color   |    Button background color when button is focused.    |                                                                          |
-|      button_unable_bg_color       |   color   |    Button background color when button is unable.     |                                                                          |
-|    button_normal_stroke_color     |   color   |             Default button stroke color.              |                                                                          |
-|    button_pressed_stroke_color    |   color   |      Button stroke color when button is pressed.      |                                                                          |
-|    button_focused_stroke_color    |   color   |      Button stroke color when button is focused.      |                                                                          |
-|    button_unable_stroke_color     |   color   |      Button stroke color when button is unable.       |                                                                          |
+|属性名| 属性类型  |属性说明|属性值|
+| :-----------------: | :-------: | :-----------: | :----------------: |
+|button_shape| dimension |按钮的形状| oval_shape<br>rect_shape<br>rounded_rect_shape<br>any_rounded_rect_shape |
+|button_rect_width| dimension |矩形按钮宽度||
+|button_rect_height| dimension |矩形按钮的高度||
+|button_oval_radius| dimension |圆形按钮的半径||
+| button_rounded_rect_corner_radius | dimension |       矩形按钮的圆角半径  ||
+|button_left_top_corner_radius|dimension|任意圆角矩形按钮的四个圆角半径||
+|button_left_bottom_corner_radius|dimension|任意圆角矩形按钮的四个圆角半径||
+|button_right_top_corner_radius|dimension|任意圆角矩形按钮的四个圆角半径||
+|button_right_bottom_corner_radius|dimension|任意圆角矩形按钮的四个圆角半径||
+|button_is_solid| boolean | 按钮是否填充 | true<br>false |
+|button_is_solid_color_gradient| boolean | 按钮是否采用渐变填充色 | true<br>false |
+|button_start_solid_color| color | 渐变开始色||
+|button_center_solid_color| color | 渐变中间色||
+|button_end_solid_color| color | 渐变结束色 ||
+|button_gradient_type| dimension | 渐变类型 |linear_gradient<br>radial_gradient<br>sweep_shape|
+|button_gradient_orientation| dimension | 渐变方向 ||
+|button_gradient_radius| dimension | 渐变角度||
+|button_stroke_width|dimension|按钮边框宽度||
+|button_normal_bg_color|color| 默认状态背景色||
+|button_pressed_bg_color|color| 指当用户点击或者触摸该控件的背景色 ||
+|button_focused_bg_color|color|指当前控件获得焦点时的背景色||
+|button_unable_bg_color|color|指当前窗口获得焦点时的背景色||
+|button_normal_stroke_color|color|默认状态边框色||
+|button_pressed_stroke_color|color| 指当用户点击或者触摸该控件的边框色 ||
+|button_focused_stroke_color|color|指当前控件获得焦点时的边框色||
+|button_unable_stroke_color|color|指当前窗口获得焦点时的边框色||
+
