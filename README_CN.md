@@ -22,9 +22,10 @@
 - 😄 支持自定义渐变填充色以及角度
 - 😆 支持自定义不同按钮状态下的背景色以及边框颜色
 
-
+<div align="center">
 <img src="https://img-blog.csdnimg.cn/20210329123251630.png" width="40%">
 <img src="https://img-blog.csdnimg.cn/20210329124016305.png" width="40%">
+</div>
 
 ## 😮 添加引用
 
