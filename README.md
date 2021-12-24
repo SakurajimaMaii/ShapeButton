@@ -14,8 +14,10 @@
 
 ## 😀 Preview
 
+<div align="center">
 <img src="https://img-blog.csdnimg.cn/20210329123251630.png" width="40%">
 <img src="https://img-blog.csdnimg.cn/20210329124016305.png" width="40%">
+</div>
 
 ## 😯 How to
 
