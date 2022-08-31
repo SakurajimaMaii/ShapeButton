@@ -4,9 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@color/purple_500"
     android:orientation="vertical">
 
+    <com.gcode.shapebutton.ShapeButton
+        android:id="@+id/button"
+        android:focusableInTouchMode="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:button_rect_width="100dp"
+        app:button_rect_height="100dp"
+        app:button_oval_radius="100dp"
+        android:text="@string/app_name"
+        app:button_shape="oval_shape"
+        app:button_is_solid="true"
+        app:button_is_solid_color_gradient="true"
+        app:button_gradient_type="sweep_shape"
+        app:button_gradient_orientation="tr_bl"
+        app:button_start_solid_color="#F44336"
+        app:button_center_solid_color="#EF5350"
+        app:button_end_solid_color="#9C27B0"
+        android:drawableTop="@drawable/ic_cpu"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="@string/app_name"
+        android:background="@drawable/btn_bk"
+        android:drawableTop="@drawable/ic_cpu"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

@@ -12,7 +12,13 @@
 
 <div align="center"><a href="https://github.com/SakurajimaMaii/ShapeButton/blob/master/README.md">English</a> | 简体中文 </div>
 
-## 💫 特性
+## 停止维护声明
+
+我不会进一步添加任何新功能。
+
+**注：我推荐你使用 [VastTools](https://github.com/SakurajimaMaii/VastUtils)，其提供的 [ShapeAndStateUtils](https://github.com/SakurajimaMaii/VastUtils/blob/master/libraries/VastTools/src/main/kotlin/com/gcode/vasttools/utils/ShapeAndStateUtils.kt) 能够满足你的绝大部分需求。**
+
+## 特性
 
 - 😀 支持四种按钮类型 `圆形/椭圆形按钮` `矩形按钮` `圆角矩形按钮` `任意圆角矩形按钮`
 - 😁 支持自定义按钮尺寸
@@ -27,7 +33,7 @@
 <img src="https://img-blog.csdnimg.cn/20210329124016305.png" width="40%">
 </div>
 
-## 😮 添加引用
+## 添加引用
 
 1. 在项目根目录下的build.gradle添加
 	```gradle
@@ -47,7 +53,7 @@
    }
 	```
 
-## 🤓 属性设置
+## 属性设置
 
 ```kotlin
 button4.apply {
@@ -82,7 +88,7 @@ button4.apply {
 
 注意,==设定最后一定要调用**create()** 方法,否则无法生效==
 
-## 😝 相关属性说明
+## 相关属性说明
 
 |属性名| 属性类型  |属性说明|属性值|
 | :-----------------: | :-------: | :-----------: | :----------------: |

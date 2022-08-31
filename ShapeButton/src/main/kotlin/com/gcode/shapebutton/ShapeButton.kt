@@ -5,18 +5,23 @@ import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.Log
 import androidx.annotation.ColorInt
 import androidx.annotation.FloatRange
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import com.gcode.widget.R
 
-/**
- *作者:created by HP on 2021/3/7 23:34
- *邮箱:sakurajimamai2020@qq.com
- */
-class ShapeButton constructor(context: Context, attrs: AttributeSet) :
-    AppCompatButton(context, attrs) {
+// Author: Vast Gui
+// Email: guihy2019@gmail.com
+// Date: 2021/3/7 23:34
+// Description:
+// Documentation:
+
+class ShapeButton @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, style: Int = 0
+) : AppCompatButton(context, attrs, style) {
+
+    private val tag:String = this.javaClass.simpleName
 
     /**
      * Button shape
@@ -41,7 +46,7 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
      * [buttonGradientOrientation].Otherwise, [GradientDrawable.Orientation.TOP_BOTTOM] will
      * be used as the default value
      */
-    lateinit var buttonGradientOrientation: GradientDrawable.Orientation
+    var buttonGradientOrientation: GradientDrawable.Orientation
 
     /**
      * Button gradient radius
@@ -417,7 +422,8 @@ class ShapeButton constructor(context: Context, attrs: AttributeSet) :
 
     private fun measureWidth(measureSpec: Int): Int {
         val specMode = MeasureSpec.getMode(measureSpec)
-        val specSize: Int = MeasureSpec.getSize(measureSpec)
+        val specSize = MeasureSpec.getSize(measureSpec)
+        Log.d(tag,"measureWidth,specMode is ${specMode.toString(2)} and specSize is $specSize")
         return when (specMode) {
             MeasureSpec.EXACTLY ->
                 if (specSize < paddingLeft + paddingRight + buttonWidth.toInt()) {

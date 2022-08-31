@@ -12,14 +12,20 @@
 
 <div align="center">English | <a href="https://github.com/SakurajimaMaii/ShapeButton/blob/master/README_CN.md">简体中文</a></div>
 
-## 😀 Preview
+## NO LONGER MAINTAINED
+
+I won't add any new features further.
+
+**Note：I recommend that you use [VastTools](https://github.com/SakurajimaMaii/VastUtils), which provides [ShapeAndStateUtils](https://github.com/SakurajimaMaii/VastUtils/blob/master/libraries/VastTools/src/main/kotlin/com/gcode/vasttools/utils/ShapeAndStateUtils.kt) that can meet most of your needs.**
+
+## Preview
 
 <div align="center">
 <img src="https://img-blog.csdnimg.cn/20210329123251630.png" width="40%">
 <img src="https://img-blog.csdnimg.cn/20210329124016305.png" width="40%">
 </div>
 
-## 😯 How to
+## How to
 
 ### Add it in your root build.gradle at the end of repositories
 
@@ -40,21 +46,21 @@
     }
   ```
 
-## 🤔 Button shape currently supported
+## Button shape currently supported
 
 - **Circular/Oval Button**
 - **Rectangle Button**
 - **Rounded Rectangle Button**
 - **Any rounded rectangle button**
 
-## 😏 The four click states currently supported
+## The four click states currently supported
 
 - **Default (normal)**
 - **Click or touch (pressed)**
 - **Focused (focused)**
 - **Unable(unable)**
 
-## 😛 Quick use
+## Quick use
 
 ### Set in XML
 
@@ -103,7 +109,7 @@ button4.apply {
 
 **Finally, you must call the create() method, otherwise it will not take effect.**
 
-## 🙂 Attribute
+## Attribute
 
 |          Attribute name           |   Type    |                      Description                      |                              Default value                               |
 | :-------------------------------: | :-------: | :---------------------------------------------------: | :----------------------------------------------------------------------: |
