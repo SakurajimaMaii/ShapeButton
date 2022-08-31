@@ -1,3 +1,19 @@
+<!--
+  ~ Copyright 2022 VastGui
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
 <vector android:height="50dp" android:viewportHeight="1024"
     android:viewportWidth="1024" android:width="50dp" xmlns:android="http://schemas.android.com/apk/res/android">
     <path android:fillColor="#292D32" android:pathData="M906.7,544c17.9,0 32,-14.5 32,-32 0,-17.9 -14.1,-32 -32,-32L853.3,480v-93.9h53.3c17.9,0 32,-14.1 32,-32 0,-17.5 -14.1,-32 -32,-32h-63.1a212.3,212.3 0,0 0,-141.7 -141.7L701.9,117.3c0,-17.5 -14.5,-32 -32,-32s-32,14.5 -32,32L637.9,170.7h-93.9L544,117.3c0,-17.5 -14.5,-32 -32,-32s-32,14.5 -32,32L480,170.7L386.6,170.7L386.6,117.3a32,32 0,1 0,-64 0v63.1a212.1,212.1 0,0 0,-142.1 141.7L117.3,322.1a32,32 0,1 0,0 64L170.7,386.1v93.9L117.3,480a32,32 0,1 0,0 64L170.7,544v93.9L117.3,637.9a32,32 0,1 0,0 64h63.1a211.2,211.2 0,0 0,142.1 141.7v63.1a32,32 0,1 0,64 0L386.6,853.3h93.9v53.3a32,32 0,1 0,64 0L544.4,853.3h93.4v53.3c0,17.5 14.5,32 32,32s32,-14.5 32,-32v-63.1a212.3,212.3 0,0 0,141.7 -141.7h63.1c17.9,0 32,-14.5 32,-32 0,-17.9 -14.1,-32 -32,-32L853.3,637.9v-93.9h53.3zM736.4,608.4c0,70.4 -57.6,128 -128,128L415.6,736.4c-70.4,0 -128,-57.6 -128,-128L287.6,415.6c0,-70.4 57.6,-128 128,-128h192.9c70.4,0 128,57.6 128,128v192.9z"/>
